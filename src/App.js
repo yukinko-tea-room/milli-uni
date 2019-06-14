@@ -1,26 +1,105 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import unittoidol  from './unit-to-idol.json';
+import idoltounit  from './idol-to-unit.json';
+
+class IdolButton extends React.Component {
+  render() {
+    return (
+      <button
+      onClick={()=>this.props.onClickHandler(this.props.idol)}
+      >
+      {this.props.idol}
+      </button>
+    );
+  }
+}
+
+class IdolsSelect extends React.Component {
+  render() {
+    const buttons = this.props.idols.map((idol) => {
+      return(
+        <IdolButton idol={idol} onClickHandler={(i)=>this.props.onClickHandler(i)}/>
+      );
+    });
+    return (
+      <div id="modal-main">
+      {buttons}
+      </div>
+    );
+  }
+}
+
+class IdolItem extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      idol: props.idol,
+      units: idoltounit[props.idol],
+    };
+  }
+
+  render(){
+    const units = this.state.units.map((unit) => {
+      const unit_member = unittoidol[unit].filter(x => x!==this.state.idol).map((member) => {
+        return(
+          <IdolButton idol={member} onClickHandler={(idol)=>this.props.onClickHandler(idol)} />
+        );
+      });
+      return (
+        <tr>
+        <td>{unit}</td>
+        <td>{unit_member}</td>
+        </tr>
+      );
+    });
+
+    return (
+      <div>
+        <div>
+          <h3>{this.state.idol}</h3>
+        </div>
+        <div>
+          <table border="1"><tbody>{units}</tbody></table>
+        </div>
+      </div>
+    );
+  }
+}
+
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      listIdols: Object.keys(idoltounit),
+      selectedIdols: [],
+    }
+  }
+
+  addIdolToList(idol) {
+    if ( this.state.selectedIdols.indexOf(idol) === -1 ){
+      const selected = this.state.selectedIdols.slice()
+      selected.push(idol)
+      const list = this.state.listIdols.filter(v=>v !== idol)
+      this.setState({ selectedIdols: selected, listIdols: list });
+    }
+  }
+
+  render() {
+    const idols = [];
+    for(const i of this.state.selectedIdols){
+      idols.push( <IdolItem idol={i} onClickHandler={(idol)=>this.addIdolToList(idol)} /> );
+    }
+
+    return (
+      <div>
+        {idols}
+        <IdolsSelect idols={this.state.listIdols} onClickHandler={(idol)=>this.addIdolToList(idol)} />
+      </div>
+    );
+  }
+
 }
 
 export default App;
