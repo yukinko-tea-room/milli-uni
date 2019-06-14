@@ -7,9 +7,9 @@ class IdolButton extends React.Component {
   render() {
     return (
       <button
-      onClick={()=>this.props.onClickHandler(this.props.idol)}
+        onClick={()=>this.props.onClickHandler(this.props.idol)}
       >
-      {this.props.idol}
+        {this.props.idol}
       </button>
     );
   }
@@ -23,34 +23,25 @@ class IdolsSelect extends React.Component {
       );
     });
     return (
-      <div id="modal-main">
-      {buttons}
+      <div>
+        {buttons}
       </div>
     );
   }
 }
 
 class IdolItem extends React.Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      idol: props.idol,
-      units: idoltounit[props.idol],
-    };
-  }
-
   render(){
-    const units = this.state.units.map((unit) => {
-      const unit_member = unittoidol[unit].filter(x => x!==this.state.idol).map((member) => {
+    const units = idoltounit[this.props.idol].map((unit) => {
+      const unit_member = unittoidol[unit].filter(x => x!==this.props.idol).map((member) => {
         return(
-          <IdolButton idol={member} onClickHandler={(idol)=>this.props.onClickHandler(idol)} />
+          <IdolButton idol={member} onClickHandler={(idol)=>this.props.addClickHandler(idol)} />
         );
       });
       return (
         <tr>
-        <td>{unit}</td>
-        <td>{unit_member}</td>
+          <td>{unit}</td>
+          <td>{unit_member}</td>
         </tr>
       );
     });
@@ -58,7 +49,8 @@ class IdolItem extends React.Component {
     return (
       <div>
         <div>
-          <h3>{this.state.idol}</h3>
+          <h3>{this.props.idol}</h3>
+          <button onClick={()=>this.props.deleteClickHandler(this.props.idol)}>削除</button>
         </div>
         <div>
           <table border="1"><tbody>{units}</tbody></table>
@@ -86,16 +78,31 @@ class App extends React.Component {
     }
   }
 
+  deleteIdolFromList(idol) {
+    const selected = this.state.selectedIdols.filter(v=>v!==idol)
+    const list = Object.keys(idoltounit).filter(v=>selected.indexOf(v)<0)
+    this.setState({ selectedIdols: selected, listIdols: list });
+  }
+
   render() {
     const idols = [];
     for(const i of this.state.selectedIdols){
-      idols.push( <IdolItem idol={i} onClickHandler={(idol)=>this.addIdolToList(idol)} /> );
+      idols.push(
+        <IdolItem
+          idol={i}
+          addClickHandler={(idol)=>this.addIdolToList(idol)}
+          deleteClickHandler={(idol)=>this.deleteIdolFromList(idol)}
+        />
+      );
     }
 
     return (
       <div>
         {idols}
-        <IdolsSelect idols={this.state.listIdols} onClickHandler={(idol)=>this.addIdolToList(idol)} />
+        <IdolsSelect
+          idols={this.state.listIdols}
+          onClickHandler={(idol)=>this.addIdolToList(idol)}
+        />
       </div>
     );
   }
