@@ -2,11 +2,20 @@ import React from 'react';
 
 import unittoidol  from './unit-to-idol.json';
 import idoltounit  from './idol-to-unit.json';
+import idolData from './idolData.json'
 
 class IdolButton extends React.Component {
   render() {
+    const style = {
+        backgroundColor: idolData[this.props.idol].color,
+        width: "110px",
+        height: "40px",
+        padding: "10px" 
+    }
     return (
       <button
+        class="idol-button"
+        style={style}
         onClick={()=>this.props.onClickHandler(this.props.idol)}
       >
         {this.props.idol}
@@ -17,9 +26,9 @@ class IdolButton extends React.Component {
 
 class IdolsSelect extends React.Component {
   render() {
-    const buttons = this.props.idols.map((idol) => {
+    const buttons = this.props.idols.map((idol, index) => {
       return(
-        <IdolButton idol={idol} onClickHandler={(i)=>this.props.onClickHandler(i)}/>
+        <IdolButton key={index} idol={idol} onClickHandler={(idol)=>this.props.onClickHandler(idol)}/>
       );
     });
     return (
@@ -32,24 +41,29 @@ class IdolsSelect extends React.Component {
 
 class IdolItem extends React.Component {
   render(){
-    const units = idoltounit[this.props.idol].map((unit) => {
-      const unit_member = unittoidol[unit].filter(x => x!==this.props.idol).map((member) => {
+    const units = idoltounit[this.props.idol].map((unit, i) => {
+      const unit_member = unittoidol[unit].filter(x => x!==this.props.idol).map((member, i) => {
         return(
-          <IdolButton idol={member} onClickHandler={(idol)=>this.props.addClickHandler(idol)} />
+          <IdolButton key={i} idol={member} onClickHandler={(idol)=>this.props.addClickHandler(idol)} />
         );
       });
       return (
-        <tr>
+        <tr key={i}>
           <td>{unit}</td>
           <td>{unit_member}</td>
         </tr>
       );
     });
 
+    const style = {
+        backgroundColor: idolData[this.props.idol].color,
+        height: "40px"
+    }
+
     return (
       <div>
         <div>
-          <h3>{this.props.idol}</h3>
+          <h3 style={style}>{this.props.idol}</h3>
           <button onClick={()=>this.props.deleteClickHandler(this.props.idol)}>削除</button>
         </div>
         <div>
@@ -89,6 +103,7 @@ class App extends React.Component {
     for(const i of this.state.selectedIdols){
       idols.push(
         <IdolItem
+          key={i}
           idol={i}
           addClickHandler={(idol)=>this.addIdolToList(idol)}
           deleteClickHandler={(idol)=>this.deleteIdolFromList(idol)}
@@ -106,7 +121,6 @@ class App extends React.Component {
       </div>
     );
   }
-
 }
 
 export default App;
