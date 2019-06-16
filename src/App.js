@@ -12,10 +12,14 @@ class IdolButton extends React.Component {
     }
     return (
       <div
-        class="idolBox"
-        /*class={selectedIdols === idol ? 'checked' : ''}*/
+        className="idolBox"
         style={style}
-        onClick={()=>this.props.onClickHandler(this.props.idol)}
+        href="#"
+        onClick={
+          ()=>{
+            this.props.onClickHandler(this.props.idol);
+          }
+        }
       >
         <div class="textContainer">
           <div class="idolNameBox">{this.props.idol}</div>
@@ -65,7 +69,7 @@ class IdolItem extends React.Component {
     }
 
     return (
-      <div class="unitView" style={style}>
+      <div class="unitView" id={this.props.idol} style={style}>
         <div class="deleteButton" onClick={()=>this.props.toggleClickHandler(this.props.idol)}></div>
         <div class="unitIdol">
           <img alt={this.props.idol} height="80%" src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`} />
@@ -92,7 +96,14 @@ class App extends React.Component {
     if ( this.state.selectedIdols.indexOf(idol) === -1 ){
       const selected = this.state.selectedIdols.slice()
       selected.push(idol)
-      this.setState({ selectedIdols: selected });
+      const id_name = `#${idol}`
+      this.setState({ selectedIdols: selected }, 
+        ()=> {
+          window.location.hash="";
+          window.location.hash=id_name;
+          return false;
+        }
+      );
     } else {
       const selected = this.state.selectedIdols.filter(v=>v!==idol)
       this.setState({ selectedIdols: selected });

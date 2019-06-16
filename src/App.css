@@ -33,6 +33,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor : pointer;
 }
 .idolNameBox {
   font-size: 1em;
@@ -80,18 +81,16 @@ body {
 
 .deleteButton {
   position: absolute;
-	display:inline-block;
+  display:inline-block;
+  background-color: #fff;
 	top:0px;
 	right: 0px;
-	width:56px;
-	height:56px;
-	border:0;
-	background-color: #fff;
+	width: 56px;
+  height: 56px;
+	transform: scale(0.5);
+	cursor: pointer;
+	border: 0;
 	border-radius:32px;
-	margin:0;
-	padding:0;
-	transform:scale(0.5);
-	cursor:pointer;
 }
 
 .checked {
