@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 
 import unittoidol  from './unit-to-idol.json';
 import idoltounit  from './idol-to-unit.json';
@@ -7,19 +8,19 @@ import idolData from './idolData.json'
 class IdolButton extends React.Component {
   render() {
     const style = {
-        backgroundColor: idolData[this.props.idol].color,
-        width: "110px",
-        height: "40px",
-        padding: "10px" 
+      backgroundColor: idolData[this.props.idol].color
     }
     return (
-      <button
-        class="idol-button"
+      <div
+        class="idolBox"
+        /*class={selectedIdols === idol ? 'checked' : ''}*/
         style={style}
         onClick={()=>this.props.onClickHandler(this.props.idol)}
       >
-        {this.props.idol}
-      </button>
+        <div class="textContainer">
+          <div class="idolNameBox">{this.props.idol}</div>
+        </div>
+      </div>
     );
   }
 }
@@ -32,7 +33,7 @@ class IdolsSelect extends React.Component {
       );
     });
     return (
-      <div>
+      <div class="idolView">
         {buttons}
       </div>
     );
@@ -44,30 +45,34 @@ class IdolItem extends React.Component {
     const units = idoltounit[this.props.idol].map((unit, i) => {
       const unit_member = unittoidol[unit].filter(x => x!==this.props.idol).map((member, i) => {
         return(
-          <IdolButton key={i} idol={member} onClickHandler={(idol)=>this.props.addClickHandler(idol)} />
+          <IdolButton key={i} idol={member} onClickHandler={(idol)=>this.props.toggleClickHandler(idol)} />
         );
       });
       return (
-        <tr key={i}>
-          <td>{unit}</td>
-          <td>{unit_member}</td>
-        </tr>
+        <div class="unitTable">
+          <div class="unitName">
+            {unit}
+          </div>
+          {unit_member}
+        </div>
       );
     });
 
     const style = {
-        backgroundColor: idolData[this.props.idol].color,
-        height: "40px"
+      backgroundColor: idolData[this.props.idol].color,
+      padding: "10px",
+      margin: "10px"
     }
 
     return (
-      <div>
-        <div>
-          <h3 style={style}>{this.props.idol}</h3>
-          <button onClick={()=>this.props.deleteClickHandler(this.props.idol)}>削除</button>
+      <div class="unitView" style={style}>
+        <div class="deleteButton" onClick={()=>this.props.toggleClickHandler(this.props.idol)}></div>
+        <div class="unitIdol">
+          <img alt={this.props.idol} height="80%" src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`} />
+          <h3>{this.props.idol}</h3>
         </div>
-        <div>
-          <table border="1"><tbody>{units}</tbody></table>
+        <div class="unitList">
+          {units}
         </div>
       </div>
     );
@@ -83,19 +88,15 @@ class App extends React.Component {
     }
   }
 
-  addIdolToList(idol) {
+  toggleIdol(idol) {
     if ( this.state.selectedIdols.indexOf(idol) === -1 ){
       const selected = this.state.selectedIdols.slice()
       selected.push(idol)
-      const list = this.state.listIdols.filter(v=>v !== idol)
-      this.setState({ selectedIdols: selected, listIdols: list });
+      this.setState({ selectedIdols: selected });
+    } else {
+      const selected = this.state.selectedIdols.filter(v=>v!==idol)
+      this.setState({ selectedIdols: selected });
     }
-  }
-
-  deleteIdolFromList(idol) {
-    const selected = this.state.selectedIdols.filter(v=>v!==idol)
-    const list = Object.keys(idoltounit).filter(v=>selected.indexOf(v)<0)
-    this.setState({ selectedIdols: selected, listIdols: list });
   }
 
   render() {
@@ -105,19 +106,18 @@ class App extends React.Component {
         <IdolItem
           key={i}
           idol={i}
-          addClickHandler={(idol)=>this.addIdolToList(idol)}
-          deleteClickHandler={(idol)=>this.deleteIdolFromList(idol)}
+          toggleClickHandler={(idol)=>this.toggleIdol(idol)}
         />
       );
     }
 
     return (
-      <div>
-        {idols}
+      <div class="container">
         <IdolsSelect
           idols={this.state.listIdols}
-          onClickHandler={(idol)=>this.addIdolToList(idol)}
+          onClickHandler={(idol)=>this.toggleIdol(idol)}
         />
+        {idols}
       </div>
     );
   }
