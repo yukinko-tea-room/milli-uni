@@ -33,17 +33,7 @@ body {
   box-sizing: content-box;
   max-width: 1200px;
   margin: 0 auto 0 auto;
-  padding: 0 15px 0 15px;
-}
-@media (min-width: 640px) {
-  .container {
-    padding: 0 30px 0 30px;
-  }
-}
-@media (min-width: 960px) {
-  .container {
-    padding: 0 40px 0 40px;
-  }
+  padding: 0 40px 0 40px;
 }
 
 .idolView {
@@ -57,6 +47,7 @@ body {
   min-height: 165px;
   margin: 5px;
   flex: 1;
+  /*flex-grow: 0;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,20 +65,12 @@ body {
   display: table;
   border-radius: 5px;
 }
-.unitIdolBox {
-  border-radius: 5px;
-  min-width: 120px;
-  max-width: 180px;
-  min-height: 50px;
-  margin: 5px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor : pointer;
-}
 
 .unitView {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.unitBox {
   border-radius: 5px;
   position: relative;
   padding: 10px;
@@ -100,14 +83,14 @@ body {
   display: table;
   border-radius: 5px;
 }
+.unitList {
+}
 .unitTable {
   background-color: #fff;
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
   border-radius: 5px;
-}
-.unitList {
 }
 .unitName {
   background-color: #fff;
@@ -125,17 +108,21 @@ body {
 }
 
 .deleteButton {
+  font-family: Helvetica Neue;
   font-size: 1em;
   position: absolute;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background-color: #fff;
-	top: 5px;
-	right: 5px;
+	top: 10px;
+	right: 10px;
 	width: 25px;
   height: 25px;
 	cursor: pointer;
 	border: 0;
-	border-radius: 30px;
+	border-radius: 50%;
 }
 
 .checked {
@@ -143,4 +130,39 @@ body {
 }
 .boxContainer {
   text-align: center;
+}
+
+@media (max-width: 960px) {
+  .container {
+    padding: 0 30px 0 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 15px 0 15px;
+  }
+  .idolView {
+  }
+  .idolBox {
+    min-width: 100%;
+    min-height: 130px;
+    justify-content: left;
+  }
+  .idolImage {
+    flex: 1;
+    margin: 15px;
+    max-height: 104px;
+    max-width: 104px;
+  }
+  .idolNameBox {
+    flex: 1;
+    margin: 15px;
+  }
+  .boxContainer {
+    min-width: 100%;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

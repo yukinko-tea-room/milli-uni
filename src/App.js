@@ -37,9 +37,10 @@ class IdolsSelect extends React.Component {
       );
     });
     return (
-      <div className="idolView" id="idolView">
+      <div className="idolView">
         {buttons}
       </div>
+      
     );
   }
 }
@@ -52,6 +53,11 @@ class IdolItem extends React.Component {
           <IdolButton key={i} idol={member} onClickHandler={(idol)=>this.props.toggleClickHandler(idol)} />
         );
       });
+      for (let i=4; i>0; i--) {
+        if (unit_member.length === i){
+          console.log(unit_member.length);
+        }
+      }
       return (
         <div key={unit} className="unitTable">
           <div className="unitName">
@@ -67,10 +73,10 @@ class IdolItem extends React.Component {
     }
 
     return (
-      <div className="unitView" id={this.props.idol} style={style}>
-        <div className="deleteButton" onClick={()=>this.props.toggleClickHandler(this.props.idol)} />
+      <div className="unitBox" id={this.props.idol} style={style}>
+        <div className="deleteButton" onClick={()=>this.props.toggleClickHandler(this.props.idol)}>×</div>
         <div className="unitIdol">
-          <img alt={this.props.idol} src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`} />
+          <img alt={this.props.idol} src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`}/>
           <h3>{this.props.idol}</h3>
         </div>
         <div className="unitList">
@@ -136,7 +142,9 @@ class App extends React.Component {
               idols={this.state.listIdols}
               onClickHandler={(idol)=>this.toggleIdol(idol)}
             />
-            {idols}
+            <div className="unitView">
+              {idols}
+            </div>
           </div>
         </div>
         <div className="footer">
