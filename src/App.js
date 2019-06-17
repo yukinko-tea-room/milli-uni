@@ -14,15 +14,15 @@ class IdolButton extends React.Component {
       <div
         className="idolBox"
         style={style}
-        href="#"
         onClick={
           ()=>{
             this.props.onClickHandler(this.props.idol);
           }
         }
       >
-        <div class="textContainer">
-          <div class="idolNameBox">{this.props.idol}</div>
+        <div className="boxContainer">
+          <img className="idolImage" alt={this.props.idol} src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`} />
+          <div className="idolNameBox">{this.props.idol}</div>
         </div>
       </div>
     );
@@ -37,7 +37,7 @@ class IdolsSelect extends React.Component {
       );
     });
     return (
-      <div class="idolView">
+      <div className="idolView" id="idolView">
         {buttons}
       </div>
     );
@@ -53,8 +53,8 @@ class IdolItem extends React.Component {
         );
       });
       return (
-        <div class="unitTable">
-          <div class="unitName">
+        <div key={unit} className="unitTable">
+          <div className="unitName">
             {unit}
           </div>
           {unit_member}
@@ -63,19 +63,17 @@ class IdolItem extends React.Component {
     });
 
     const style = {
-      backgroundColor: idolData[this.props.idol].color,
-      padding: "10px",
-      margin: "10px"
+      backgroundColor: idolData[this.props.idol].color
     }
 
     return (
-      <div class="unitView" id={this.props.idol} style={style}>
-        <div class="deleteButton" onClick={()=>this.props.toggleClickHandler(this.props.idol)}></div>
-        <div class="unitIdol">
-          <img alt={this.props.idol} height="80%" src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`} />
+      <div className="unitView" id={this.props.idol} style={style}>
+        <div className="deleteButton" onClick={()=>this.props.toggleClickHandler(this.props.idol)} />
+        <div className="unitIdol">
+          <img alt={this.props.idol} src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`} />
           <h3>{this.props.idol}</h3>
         </div>
-        <div class="unitList">
+        <div className="unitList">
           {units}
         </div>
       </div>
@@ -96,17 +94,18 @@ class App extends React.Component {
     if ( this.state.selectedIdols.indexOf(idol) === -1 ){
       const selected = this.state.selectedIdols.slice()
       selected.push(idol)
-      const id_name = `#${idol}`
       this.setState({ selectedIdols: selected }, 
         ()=> {
-          window.location.hash="";
-          window.location.hash=id_name;
-          return false;
+          console.log("checked");
         }
       );
     } else {
       const selected = this.state.selectedIdols.filter(v=>v!==idol)
-      this.setState({ selectedIdols: selected });
+      this.setState({ selectedIdols: selected, checked: !this.state.checked }, 
+        ()=> {
+          console.log("unchecked");
+        }
+      );
     }
   }
 
@@ -123,12 +122,29 @@ class App extends React.Component {
     }
 
     return (
-      <div class="container">
-        <IdolsSelect
-          idols={this.state.listIdols}
-          onClickHandler={(idol)=>this.toggleIdol(idol)}
-        />
-        {idols}
+      <div>
+        <div className="header">
+          <div className="container">
+            <h3 className="headerButton">
+              MILLIONLIVE!-UNIT-SEARCH
+            </h3>
+          </div>
+        </div>
+        <div className="main">
+          <div className="container">
+            <IdolsSelect
+              idols={this.state.listIdols}
+              onClickHandler={(idol)=>this.toggleIdol(idol)}
+            />
+            {idols}
+          </div>
+        </div>
+        <div className="footer">
+          <hr />
+          <center>
+					  <p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
+          </center>
+        </div>
       </div>
     );
   }
