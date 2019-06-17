@@ -143,11 +143,14 @@ body {
     padding: 0 15px 0 15px;
   }
   .idolView {
+    top: 0;
+    left: 0;
   }
   .idolBox {
     min-width: 100%;
     min-height: 130px;
     justify-content: left;
+    margin: 5px 0;
   }
   .idolImage {
     flex: 1;
