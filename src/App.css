@@ -148,19 +148,24 @@ body {
   }
   .idolBox {
     min-width: 100%;
-    min-height: 130px;
+    min-height: 75px;
     justify-content: left;
     margin: 5px 0;
   }
   .idolImage {
     flex: 1;
     margin: 15px;
-    max-height: 104px;
-    max-width: 104px;
+    max-height: 52px;
+    max-width: 52px;
   }
   .idolNameBox {
     flex: 1;
     margin: 15px;
+  }
+  .unitName {
+    min-height: 75px;
+    justify-content: left;
+    margin: 5px 0;
   }
   .boxContainer {
     min-width: 100%;

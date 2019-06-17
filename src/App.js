@@ -53,11 +53,6 @@ class IdolItem extends React.Component {
           <IdolButton key={i} idol={member} onClickHandler={(idol)=>this.props.toggleClickHandler(idol)} />
         );
       });
-      for (let i=4; i>0; i--) {
-        if (unit_member.length === i){
-          console.log(unit_member.length);
-        }
-      }
       return (
         <div key={unit} className="unitTable">
           <div className="unitName">
