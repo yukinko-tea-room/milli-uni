@@ -8,15 +8,19 @@ import idolData from './idolData.json'
 class IdolButton extends React.Component {
   render() {
     const style = {
-      backgroundColor: idolData[this.props.idol].color
+      borderColor: idolData[this.props.idol].color
     }
+
     return (
       <div
-        className="idolBox"
+        className={"idolBox"}
+        id={this.props.idol}
         style={style}
         onClick={
           ()=>{
             this.props.onClickHandler(this.props.idol);
+            console.log(this.props.idol);
+            console.log(idolData[this.props.idol].color);
           }
         }
       >
@@ -48,7 +52,7 @@ class IdolsSelect extends React.Component {
 class IdolItem extends React.Component {
   render(){
     const units = idoltounit[this.props.idol].map((unit, i) => {
-      const unit_member = unittoidol[unit].filter(x => x!==this.props.idol).map((member, i) => {
+      const unit_member = unittoidol[unit].map((member, i) => {
         return(
           <IdolButton key={i} idol={member} onClickHandler={(idol)=>this.props.toggleClickHandler(idol)} />
         );
@@ -63,17 +67,8 @@ class IdolItem extends React.Component {
       );
     });
 
-    const style = {
-      backgroundColor: idolData[this.props.idol].color
-    }
-
     return (
-      <div className="unitBox" id={this.props.idol} style={style}>
-        <div className="deleteButton" onClick={()=>this.props.toggleClickHandler(this.props.idol)}>×</div>
-        <div className="unitIdol">
-          <img alt={this.props.idol} src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`}/>
-          <h3>{this.props.idol}</h3>
-        </div>
+      <div className="unitBox" id={this.props.idol}>
         <div className="unitList">
           {units}
         </div>
@@ -89,31 +84,36 @@ class App extends React.Component {
       listIdols: Object.keys(idoltounit),
       selectedIdols: [],
     }
+    console.log(this.state.selectedIdols);
   }
-
+  
   toggleIdol(idol) {
     if ( this.state.selectedIdols.indexOf(idol) === -1 ){
       const selected = this.state.selectedIdols.slice()
-      selected.push(idol)
+      selected.push(idol);
       this.setState({ selectedIdols: selected }, 
         ()=> {
-          console.log("checked");
+          console.log(this.state.selectedIdols);
+          console.log(this.state.selectedIdols.length)
+          console.log(idol);
         }
       );
     } else {
       const selected = this.state.selectedIdols.filter(v=>v!==idol)
-      this.setState({ selectedIdols: selected, checked: !this.state.checked }, 
+      this.setState({ selectedIdols: selected }, 
         ()=> {
-          console.log("unchecked");
+          console.log(this.state.selectedIdols);
+          console.log(this.state.selectedIdols.length)
+          console.log(idol);
         }
       );
     }
   }
 
   render() {
-    const idols = [];
+    const units = [];
     for(const i of this.state.selectedIdols){
-      idols.push(
+      units.push(
         <IdolItem
           key={i}
           idol={i}
@@ -137,16 +137,19 @@ class App extends React.Component {
               idols={this.state.listIdols}
               onClickHandler={(idol)=>this.toggleIdol(idol)}
             />
+            <hr />
             <div className="unitView">
-              {idols}
+              {units}
             </div>
           </div>
         </div>
         <div className="footer">
-          <hr />
-          <center>
-					  <p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
-          </center>
+          <div className="container">
+            <hr />
+            <center>
+					  < p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
+            </center>
+          </div>
         </div>
       </div>
     );

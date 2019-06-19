@@ -42,6 +42,8 @@ body {
 }
 .idolBox {
   border-radius: 5px;
+  background-color: #fff;
+  border: solid;
   min-width: 120px;
   max-width: 180px;
   min-height: 165px;
@@ -73,8 +75,7 @@ body {
 .unitBox {
   border-radius: 5px;
   position: relative;
-  padding: 10px;
-  margin: 10px;
+  padding: auto;
 }
 .unitIdol {
   font-size: 1em;
@@ -84,9 +85,12 @@ body {
   border-radius: 5px;
 }
 .unitList {
+  background-color: #000;
+  padding: 5px;
+  margin: auto;
 }
 .unitTable {
-  background-color: #fff;
+  background-color: #ccc;
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
@@ -126,7 +130,6 @@ body {
 }
 
 .checked {
-  background-color: #000;
 }
 .boxContainer {
   text-align: center;
@@ -168,7 +171,6 @@ body {
     margin: 5px 0;
   }
   .boxContainer {
-    min-width: 100%;
     text-align: left;
     display: flex;
     flex-wrap: wrap;
