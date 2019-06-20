@@ -44,6 +44,7 @@ body {
   border-radius: 5px;
   background-color: #fff;
   border: solid;
+  border-width: 5px;
   min-width: 150px;
   max-width: 200px;
   margin: 5px;
