@@ -83,7 +83,8 @@ body {
 .unitIdolView {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 5px;
+  padding: 0 10px;
+  margin: auto;
 }
 .unitList {
   padding: 5px;
