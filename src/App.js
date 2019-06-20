@@ -59,7 +59,7 @@ class IdolItem extends React.Component {
       });
       return (
         <div key={unit} className="unitTable">
-          <div className="unitName">
+          <div className="unitName checked">
             {unit}
           </div>
           <div className="unitIdolView">
@@ -139,7 +139,6 @@ class App extends React.Component {
               idols={this.state.listIdols}
               onClickHandler={(idol)=>this.toggleIdol(idol)}
             />
-            <hr />
             <div className="unitView">
               {units}
             </div>

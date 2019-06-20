@@ -10,7 +10,7 @@ body {
   height: 60px;
   width: 100%;
   border: none;
-  z-index:1;
+  z-index: 1;
 }
 .headerButton {
   color: #fff;
@@ -90,7 +90,8 @@ body {
   margin: auto;
 }
 .unitTable {
-  background-color: #ccc;
+  border: solid;
+  border-color: rgb(0, 192, 48);
   padding: 5px;
   margin: 5px 0;
   border-radius: 5px;
@@ -111,6 +112,7 @@ body {
 
 .unitName.checked {
   background-color: rgb(0, 192, 48);
+  color: #fff;
 }
 
 .deleteButton {
