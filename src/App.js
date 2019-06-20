@@ -7,8 +7,11 @@ import idolData from './idolData.json'
 
 class IdolButton extends React.Component {
   render() {
-    const style = {
-      borderColor: idolData[this.props.idol].color
+    var style = {
+      borderColor: idolData[this.props.idol].color,
+    }
+    if(this.props.selectedIdols.indexOf(this.props.idol) !== -1){
+      style['backgroundColor'] = idolData[this.props.idol].color
     }
 
     return (
@@ -19,8 +22,6 @@ class IdolButton extends React.Component {
         onClick={
           ()=>{
             this.props.onClickHandler(this.props.idol);
-            console.log(this.props.idol);
-            console.log(idolData[this.props.idol].color);
           }
         }
       >
@@ -37,7 +38,12 @@ class IdolsSelect extends React.Component {
   render() {
     const buttons = this.props.idols.map((idol, index) => {
       return(
-        <IdolButton key={index} idol={idol} onClickHandler={(idol)=>this.props.onClickHandler(idol)}/>
+        <IdolButton
+            key={index}
+            selectedIdols={this.props.selectedIdols}
+            idol={idol}
+            onClickHandler={(idol)=>this.props.onClickHandler(idol)}
+        />
       );
     });
     return (
@@ -54,7 +60,12 @@ class IdolItem extends React.Component {
     const units = idoltounit[this.props.idol].map((unit, i) => {
       const unit_member = unittoidol[unit].map((member, i) => {
         return(
-          <IdolButton key={i} idol={member} onClickHandler={(idol)=>this.props.toggleClickHandler(idol)} />
+          <IdolButton
+            key={i}
+            selectedIdols={this.props.selectedIdols}
+            idol={member}
+            onClickHandler={(idol)=>this.props.toggleClickHandler(idol)}
+          />
         );
       });
       return (
@@ -86,29 +97,16 @@ class App extends React.Component {
       listIdols: Object.keys(idoltounit),
       selectedIdols: [],
     }
-    console.log(this.state.selectedIdols);
   }
   
   toggleIdol(idol) {
     if ( this.state.selectedIdols.indexOf(idol) === -1 ){
       const selected = this.state.selectedIdols.slice()
       selected.push(idol);
-      this.setState({ selectedIdols: selected }, 
-        ()=> {
-          console.log(this.state.selectedIdols);
-          console.log(this.state.selectedIdols.length)
-          console.log(idol);
-        }
-      );
+      this.setState({ selectedIdols: selected });
     } else {
       const selected = this.state.selectedIdols.filter(v=>v!==idol)
-      this.setState({ selectedIdols: selected }, 
-        ()=> {
-          console.log(this.state.selectedIdols);
-          console.log(this.state.selectedIdols.length)
-          console.log(idol);
-        }
-      );
+      this.setState({ selectedIdols: selected });
     }
   }
 
@@ -119,6 +117,7 @@ class App extends React.Component {
         <IdolItem
           key={i}
           idol={i}
+          selectedIdols={this.state.selectedIdols}
           toggleClickHandler={(idol)=>this.toggleIdol(idol)}
         />
       );
@@ -137,6 +136,7 @@ class App extends React.Component {
           <div className="container">
             <IdolsSelect
               idols={this.state.listIdols}
+              selectedIdols={this.state.selectedIdols}
               onClickHandler={(idol)=>this.toggleIdol(idol)}
             />
             <hr />
