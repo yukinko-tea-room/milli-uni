@@ -8,8 +8,7 @@ import idolData from './idolData.json'
 class IdolButton extends React.Component {
   render() {
     const style = {
-      borderColor: idolData[this.props.idol].color,
-      backgroundColor: idolData[this.props.idol].color
+      borderColor: idolData[this.props.idol].color
     }
 
     return (
@@ -63,7 +62,9 @@ class IdolItem extends React.Component {
           <div className="unitName">
             {unit}
           </div>
-          {unit_member}
+          <div className="unitIdolView">
+            {unit_member}
+          </div>
         </div>
       );
     });
