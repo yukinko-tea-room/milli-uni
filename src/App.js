@@ -48,7 +48,7 @@ class IdolsSelect extends React.Component {
   filterButtonBuilder(type){
     return(
       <label>
-        <div className={`filterCheckboxType ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`} >
+        <div className={`filterCheckboxType filterCheckbox-${type} ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`} >
           <input
             type="checkbox"
             checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
