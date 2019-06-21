@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './idolIcon.css';
 
 import unittoidol  from './unit-to-idol.json';
 import idoltounit  from './idol-to-unit.json';
@@ -26,7 +27,7 @@ class IdolButton extends React.Component {
         }
       >
         <div className="boxContainer">
-          <img className="idolImage" alt={this.props.idol} src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`} />
+          <div className={`idolImage idolIcon-${this.props.idol}`}></div>
           <div className="idolNameBox">{this.props.idol}</div>
         </div>
       </div>
