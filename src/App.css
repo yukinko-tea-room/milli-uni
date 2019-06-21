@@ -139,18 +139,48 @@ form {
   flex-wrap: wrap;
   min-width: 100%;
 }
-
 .filterCheckboxType {
   flex: 1;
+  border: solid;
   width: 90px;
   padding: 5px;
   margin: 5px;
-  background-color: #ccc;
   border-radius: 5px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+input[type="checkbox"] {
+  display: none;
+}
+.filterCheckboxType.filterCheckbox-princess {
+  border-color: #ff2383;
+}
+.filterCheckboxType.filterCheckbox-fairy {
+  border-color: #025efd;
+}
+.filterCheckboxType.filterCheckbox-angel {
+  border-color: #ffbb00;
+}
+.filterCheckboxType.filterCheckbox-princess.checked {
+  background-color: #ff2383;
+}
+.filterCheckboxType.filterCheckbox-fairy.checked {
+  background-color: #025efd;
+}
+.filterCheckboxType.filterCheckbox-angel.checked {
+  background-color: #ffbb00;
+}
+.typeNameBox {
+  flex: 1;
+  min-height: 20px;
+  background-color: #fff;
+  font-size: 0.7em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .boxContainer {
