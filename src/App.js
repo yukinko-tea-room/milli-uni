@@ -90,10 +90,9 @@ class IdolsSelect extends React.Component {
   }
 }
 
-class IdolItem extends React.Component {
+class UnitItem extends React.Component {
   render(){
-    const units = idoltounit[this.props.idol].map((unit, i) => {
-      const unit_member = unittoidol[unit].map((member, i) => {
+    const unitMember = unittoidol[this.props.unit].map((member, i) => {
         return(
           <IdolButton
             key={i}
@@ -102,26 +101,19 @@ class IdolItem extends React.Component {
             onClickHandler={(idol)=>this.props.toggleClickHandler(idol)}
           />
         );
-      });
-      return (
-        <div key={unit} className="unitTable">
-          <div className="unitName checked">
-            {unit}
-          </div>
-          <div className="unitIdolView">
-            {unit_member}
-          </div>
-        </div>
-      );
-    });
+      }
+    );
 
-    return (
-      <div className="unitBox">
-        <div className="unitList">
-          {units}
+    return(
+      <div key={this.props.unit} className="unitTable">
+        <div className="unitName checked">
+          {this.props.unit}
+        </div>
+        <div className="unitIdolView">
+          {unitMember}
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -131,31 +123,47 @@ class App extends React.Component {
     this.state = {
       listIdols: Object.keys(idoltounit),
       selectedIdols: [],
+      selectedUnits: [],
     }
+  }
+
+  updateSelectedUnits(idols){
+    const selectedUnits = []
+    for(const idol of idols){
+      console.log(idol)
+      for(const unit of idoltounit[idol]){
+        if(selectedUnits.indexOf(unit) === -1){
+          selectedUnits.push(unit)
+        }
+      }
+    }
+    return selectedUnits;
   }
   
   toggleIdol(idol) {
     if ( this.state.selectedIdols.indexOf(idol) === -1 ){
       const selected = this.state.selectedIdols.slice()
       selected.push(idol);
-      this.setState({ selectedIdols: selected });
+      const units = this.updateSelectedUnits(selected)
+      this.setState({ selectedIdols: selected, selectedUnits: units }, ()=>{console.log(this.state.selectedUnits)});
     } else {
       const selected = this.state.selectedIdols.filter(v=>v!==idol);
-      this.setState({ selectedIdols: selected });
+      const units = this.updateSelectedUnits(selected)
+      this.setState({ selectedIdols: selected, selectedUnits: units });
     }
   }
 
   render() {
     const units = [];
-    for(const i of this.state.selectedIdols){
+    for(const i of this.state.selectedUnits){
       units.push(
-        <IdolItem
+        <UnitItem
           key={i}
-          idol={i}
+          unit={i}
           selectedIdols={this.state.selectedIdols}
           toggleClickHandler={(idol)=>this.toggleIdol(idol)}
         />
-      );
+      )
     }
 
     return (
@@ -175,7 +183,11 @@ class App extends React.Component {
               onClickHandler={(idol)=>this.toggleIdol(idol)}
             />
             <div className="unitView">
-              {units}
+              <div className="unitBox">
+                <div className="unitList">
+                  {units}
+                </div>
+              </div>
             </div>
           </div>
         </div>
