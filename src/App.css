@@ -58,6 +58,7 @@ body {
   border-radius: 5px;
   height: 35px;
   width: 35px;
+  background-size: contain;
 }
 .idolNameBox {
   flex: 1;
