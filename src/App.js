@@ -130,7 +130,6 @@ class App extends React.Component {
   updateSelectedUnits(idols){
     const selectedUnits = []
     for(const idol of idols){
-      console.log(idol)
       for(const unit of idoltounit[idol]){
         if(selectedUnits.indexOf(unit) === -1){
           selectedUnits.push(unit)
@@ -145,7 +144,7 @@ class App extends React.Component {
       const selected = this.state.selectedIdols.slice()
       selected.push(idol);
       const units = this.updateSelectedUnits(selected)
-      this.setState({ selectedIdols: selected, selectedUnits: units }, ()=>{console.log(this.state.selectedUnits)});
+      this.setState({ selectedIdols: selected, selectedUnits: units });
     } else {
       const selected = this.state.selectedIdols.filter(v=>v!==idol);
       const units = this.updateSelectedUnits(selected)
