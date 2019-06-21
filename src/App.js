@@ -16,7 +16,13 @@ class IdolButton extends React.Component {
     }
 
     return (
-      <div className={"idolBox"} id={this.props.idol} style={style} onClick={ ()=>{ this.props.onClickHandler(this.props.idol); } }>
+      <div
+        className={"idolBox"}
+        id={this.props.idol}
+        style={style} onClick={()=>{
+          this.props.onClickHandler(this.props.idol);
+        }}
+      >
         <div className="boxContainer">
           <div className={`idolImage idolIcon-${this.props.idol}`}></div>
           <div className="idolNameBox">{this.props.idol}</div>
@@ -48,13 +54,15 @@ class IdolsSelect extends React.Component {
   filterButtonBuilder(type){
     return(
       <label>
-        <div className={`filterCheckboxType filterCheckbox-${type} ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`} >
-        <div className="typeNameBox">
-          <input
-            type="checkbox"
-            checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
-            onChange={()=>this.setFilter(type)}
-          />
+        <div
+          className={`filterCheckboxType filterCheckbox-${type} ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`}
+        >
+          <div className="typeNameBox">
+            <input
+              type="checkbox"
+              checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
+              onChange={()=>this.setFilter(type)}
+            />
             {type}
           </div>
         </div>
@@ -194,8 +202,8 @@ class App extends React.Component {
           <div className="container">
             <hr />
             <center>
-            <p>Copyright (c) 2019 雪んこ茶房</p>
-					  <p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
+              <p>Copyright (c) 2019 雪んこ茶房</p>
+              <p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
             </center>
           </div>
         </div>
