@@ -2,30 +2,21 @@ import React from 'react';
 import './App.css';
 import './idolIcon.css';
 
-import unittoidol  from './unit-to-idol.json';
-import idoltounit  from './idol-to-unit.json';
-import idolData from './idolData.json'
+import unittoidol  from "./unit-to-idol.json";
+import idoltounit  from "./idol-to-unit.json";
+import idolData from "./idolData.json";
 
 class IdolButton extends React.Component {
   render() {
     var style = {
-      borderColor: idolData[this.props.idol].color,
+      borderColor: idolData[this.props.idol].color
     }
     if(this.props.selectedIdols.indexOf(this.props.idol) !== -1){
-      style['backgroundColor'] = idolData[this.props.idol].color
+      style["backgroundColor"] = idolData[this.props.idol].color
     }
 
     return (
-      <div
-        className={"idolBox"}
-        id={this.props.idol}
-        style={style}
-        onClick={
-          ()=>{
-            this.props.onClickHandler(this.props.idol);
-          }
-        }
-      >
+      <div className={"idolBox"} id={this.props.idol} style={style} onClick={ ()=>{ this.props.onClickHandler(this.props.idol); } }>
         <div className="boxContainer">
           <div className={`idolImage idolIcon-${this.props.idol}`}></div>
           <div className="idolNameBox">{this.props.idol}</div>
@@ -36,22 +27,63 @@ class IdolButton extends React.Component {
 }
 
 class IdolsSelect extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      filterType: ["princess", "fairy", "angel"],
+    }
+  }
+
+  setFilter(type){
+    if(this.state.filterType.indexOf(type) !== -1){
+      const filterType = this.state.filterType.filter(v=>v!==type)
+      this.setState({filterType: filterType})
+    }else{
+      const filterType = this.state.filterType
+      filterType.push(type)
+      this.setState({filterType: filterType})
+    }
+  }
+  
+  filterButtonBuilder(type){
+    return(
+      <label>
+        <div className={`filterCheckboxType ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`} >
+          <input
+            type="checkbox"
+            checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
+            onChange={()=>this.setFilter(type)}
+          />
+          {type}
+        </div>
+      </label>
+    )
+
+  }
+
   render() {
     const buttons = this.props.idols.map((idol, index) => {
+      if(this.state.filterType.indexOf(idolData[idol].type) === -1){
+        return null
+      }
       return(
         <IdolButton
-            key={index}
-            selectedIdols={this.props.selectedIdols}
-            idol={idol}
-            onClickHandler={(idol)=>this.props.onClickHandler(idol)}
+          key={index}
+          selectedIdols={this.props.selectedIdols}
+          idol={idol}
+          onClickHandler={(idol)=>this.props.onClickHandler(idol)}
         />
       );
     });
     return (
       <div className="idolView">
+        <form>
+          {this.filterButtonBuilder("princess")}
+          {this.filterButtonBuilder("fairy")}
+          {this.filterButtonBuilder("angel")}
+        </form>
         {buttons}
       </div>
-      
     );
   }
 }
@@ -106,7 +138,7 @@ class App extends React.Component {
       selected.push(idol);
       this.setState({ selectedIdols: selected });
     } else {
-      const selected = this.state.selectedIdols.filter(v=>v!==idol)
+      const selected = this.state.selectedIdols.filter(v=>v!==idol);
       this.setState({ selectedIdols: selected });
     }
   }
@@ -149,7 +181,8 @@ class App extends React.Component {
           <div className="container">
             <hr />
             <center>
-					  < p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
+            <p>Copyright (c) 2019 雪んこ茶房</p>
+					  <p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
             </center>
           </div>
         </div>
