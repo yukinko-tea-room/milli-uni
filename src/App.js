@@ -1,30 +1,21 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import unittoidol  from './unit-to-idol.json';
-import idoltounit  from './idol-to-unit.json';
-import idolData from './idolData.json'
+import unittoidol  from "./unit-to-idol.json";
+import idoltounit  from "./idol-to-unit.json";
+import idolData from "./idolData.json";
 
 class IdolButton extends React.Component {
   render() {
     var style = {
-      borderColor: idolData[this.props.idol].color,
+      borderColor: idolData[this.props.idol].color
     }
     if(this.props.selectedIdols.indexOf(this.props.idol) !== -1){
-      style['backgroundColor'] = idolData[this.props.idol].color
+      style["backgroundColor"] = idolData[this.props.idol].color
     }
 
     return (
-      <div
-        className={"idolBox"}
-        id={this.props.idol}
-        style={style}
-        onClick={
-          ()=>{
-            this.props.onClickHandler(this.props.idol);
-          }
-        }
-      >
+      <div className={"idolBox"} id={this.props.idol} style={style} onClick={ ()=>{ this.props.onClickHandler(this.props.idol); } }>
         <div className="boxContainer">
           <img className="idolImage" alt={this.props.idol} src={`https://millionlive.idolmaster.jp/theaterdays/images/top/a/${idolData[this.props.idol].image}`} />
           <div className="idolNameBox">{this.props.idol}</div>
@@ -50,7 +41,6 @@ class IdolsSelect extends React.Component {
       <div className="idolView">
         {buttons}
       </div>
-      
     );
   }
 }
@@ -105,7 +95,7 @@ class App extends React.Component {
       selected.push(idol);
       this.setState({ selectedIdols: selected });
     } else {
-      const selected = this.state.selectedIdols.filter(v=>v!==idol)
+      const selected = this.state.selectedIdols.filter(v=>v!==idol);
       this.setState({ selectedIdols: selected });
     }
   }
@@ -148,7 +138,8 @@ class App extends React.Component {
           <div className="container">
             <hr />
             <center>
-					  < p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
+            <p>Copyright (c) 2019 雪んこ茶房</p>
+					  <p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
             </center>
           </div>
         </div>
