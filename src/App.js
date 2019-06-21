@@ -26,19 +26,59 @@ class IdolButton extends React.Component {
 }
 
 class IdolsSelect extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      filterType: ["princess", "fairy", "angel"],
+    }
+  }
+
+  setFilter(type){
+    if(this.state.filterType.indexOf(type) !== -1){
+      const filterType = this.state.filterType.filter(v=>v!==type)
+      this.setState({filterType: filterType})
+    }else{
+      const filterType = this.state.filterType
+      filterType.push(type)
+      this.setState({filterType: filterType})
+    }
+  }
+  
+  filterButtonBuilder(type){
+    return(
+      <div className={`filterChechboxType ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`} >
+        <input
+          type="checkbox"
+          checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
+          onChange={()=>this.setFilter(type)}
+        />
+        {type}
+      </div>
+    )
+
+  }
+
   render() {
     const buttons = this.props.idols.map((idol, index) => {
+      if(this.state.filterType.indexOf(idolData[idol].type) === -1){
+        return null
+      }
       return(
         <IdolButton
-            key={index}
-            selectedIdols={this.props.selectedIdols}
-            idol={idol}
-            onClickHandler={(idol)=>this.props.onClickHandler(idol)}
+          key={index}
+          selectedIdols={this.props.selectedIdols}
+          idol={idol}
+          onClickHandler={(idol)=>this.props.onClickHandler(idol)}
         />
       );
     });
     return (
       <div className="idolView">
+        <form>
+        {this.filterButtonBuilder("princess")}
+        {this.filterButtonBuilder("fairy")}
+        {this.filterButtonBuilder("angel")}
+        </form>
         {buttons}
       </div>
     );
