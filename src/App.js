@@ -114,8 +114,10 @@ class UnitItem extends React.Component {
 
     return(
       <div key={this.props.unit} className="unitTable">
-        <div className="unitName checked">
-          {this.props.unit}
+        <div className="unitNameView">
+          <div className="unitNameBox">
+            {this.props.unit}
+          </div>
         </div>
         <div className="unitIdolView">
           {unitMember}
