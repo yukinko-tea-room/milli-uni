@@ -46,14 +46,16 @@ class IdolsSelect extends React.Component {
   
   filterButtonBuilder(type){
     return(
-      <div className={`filterChechboxType ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`} >
-        <input
-          type="checkbox"
-          checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
-          onChange={()=>this.setFilter(type)}
-        />
-        {type}
-      </div>
+      <label>
+        <div className={`filterCheckboxType ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`} >
+          <input
+            type="checkbox"
+            checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
+            onChange={()=>this.setFilter(type)}
+          />
+          {type}
+        </div>
+      </label>
     )
 
   }
@@ -75,9 +77,9 @@ class IdolsSelect extends React.Component {
     return (
       <div className="idolView">
         <form>
-        {this.filterButtonBuilder("princess")}
-        {this.filterButtonBuilder("fairy")}
-        {this.filterButtonBuilder("angel")}
+          {this.filterButtonBuilder("princess")}
+          {this.filterButtonBuilder("fairy")}
+          {this.filterButtonBuilder("angel")}
         </form>
         {buttons}
       </div>

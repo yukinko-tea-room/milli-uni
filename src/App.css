@@ -133,7 +133,23 @@ body {
 	border-radius: 50%;
 }
 
-.checked {
+form {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+}
+
+.filterCheckboxType {
+  flex: 1;
+  width: 90px;
+  padding: 5px;
+  margin: 5px;
+  background-color: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .boxContainer {
