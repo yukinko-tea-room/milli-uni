@@ -26,7 +26,9 @@ class IdolButton extends React.Component {
       >
         <div className="boxContainer">
           <div className={`idolImage${this.props.classNameSuffix} idolIcon-${this.props.idol}`}></div>
-          <div className={`idolNameBox${this.props.classNameSuffix}`}>{this.props.idol}</div>
+          <div className={`idolNameBox${this.props.classNameSuffix}`}>
+            {idolData[this.props.idol].screenName}
+          </div>
         </div>
       </div>
     );
