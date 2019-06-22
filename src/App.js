@@ -105,28 +105,33 @@ class IdolsSelect extends React.Component {
 
 class UnitItem extends React.Component {
   render(){
-    const unitMember = unittoidol[this.props.unit].map((member, i) => {
-        return(
-          <IdolButton
-            key={i}
-            selectedIdols={this.props.selectedIdols}
-            idol={member}
-            classNameSuffix={this.props.classNameSuffix}
-            onClickHandler={(idol)=>this.props.toggleClickHandler(idol)}
-          />
-        );
-      }
-    );
+    const unitMember = unittoidol[this.props.unit]
+    unitMember.sort((a,b)=>{
+      return (this.props.selectedIdols.indexOf(b)!==-1)?1:-1
+    })
+    const memberButtons = unitMember.map((member, i) => {
+      return(
+        <IdolButton
+          key={i}
+          selectedIdols={this.props.selectedIdols}
+          idol={member}
+          classNameSuffix={this.props.classNameSuffix}
+          onClickHandler={(idol)=>this.props.toggleClickHandler(idol)}
+        />
+      )
+    });
+    const selectedMember = unitMember.filter(idol=>this.props.selectedIdols.indexOf(idol)!==-1)
+    const completeClassName = (selectedMember.length === unitMember.length)?"unitComplete":""
 
     return(
-      <div key={this.props.unit} className={`unitTable${this.props.classNameSuffix}`}>
+      <div key={this.props.unit} className={`unitTable${this.props.classNameSuffix} ${completeClassName}`}>
         <div className={`unitNameView${this.props.classNameSuffix}`}>
           <div className={`unitNameBox${this.props.classNameSuffix}`}>
             {this.props.unit}
           </div>
         </div>
         <div className="unitIdolView">
-          {unitMember}
+          {memberButtons}
         </div>
       </div>
     )
@@ -153,6 +158,13 @@ class App extends React.Component {
         }
       }
     }
+    selectedUnits.sort((a,b)=>{
+      return (unittoidol[a].length > unittoidol[b].length)?-1:1
+    })
+    selectedUnits.sort((a,b)=>{
+        const selectedMember = unittoidol[a].filter(idol=>idols.indexOf(idol)!==-1)
+        return (selectedMember.length === unittoidol[a].length)?-1:1 
+    })
     return selectedUnits;
   }
   

@@ -135,6 +135,9 @@ body {
   padding: 5px;
   border-radius: 5px;
 }
+.unitComplete {
+  background-color: #ff8;
+}
 
 .deleteButton {
   font-family: Helvetica Neue;
