@@ -77,7 +77,10 @@ class IdolsSelect extends React.Component {
   render() {
     const buttons = this.props.idols.map((idol, index) => {
       if(this.state.filterType.indexOf(idolData[idol].type) === -1){
-        return null
+        if(this.state.filterType.indexOf("selecting") === -1 ||
+           this.props.selectedIdols.indexOf(idol) === -1){
+          return null
+        }
       }
       return(
         <IdolButton
@@ -95,6 +98,7 @@ class IdolsSelect extends React.Component {
           {this.filterButtonBuilder("princess")}
           {this.filterButtonBuilder("fairy")}
           {this.filterButtonBuilder("angel")}
+          {this.filterButtonBuilder("selecting")}
         </form>
         {buttons}
       </div>
@@ -179,6 +183,7 @@ class App extends React.Component {
       this.setState({ selectedIdols: selected, selectedUnits: units });
     }
   }
+
   setClassNameSuffix(suffix){
     this.setState({classNameSuffix: suffix})
   }
