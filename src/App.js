@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './App.icon.css';
 import './App.small.css';
 import './idolIcon.css';
 
@@ -204,6 +205,7 @@ class App extends React.Component {
           <div className="container">
             <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("")}}>Normal</button>
             <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("Small")}}>Small</button>
+            <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("Icon")}}>Icon</button>
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}
