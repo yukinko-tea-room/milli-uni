@@ -161,6 +161,10 @@ class App extends React.Component {
     selectedUnits.sort((a,b)=>{
       return (unittoidol[a].length > unittoidol[b].length)?-1:1
     })
+    selectedUnits.sort((a,b)=>{
+        const selectedMember = unittoidol[a].filter(idol=>idols.indexOf(idol)!==-1)
+        return (selectedMember.length === unittoidol[a].length)?-1:1 
+    })
     return selectedUnits;
   }
   
