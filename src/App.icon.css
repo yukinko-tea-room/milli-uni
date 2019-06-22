@@ -11,7 +11,7 @@
   max-width: 35px;
   align-items: center;
   justify-content: center;
-  cursor : pointer;
+  cursor: pointer;
 }
 .idolImageIcon {
   border-radius: 5px;
@@ -20,7 +20,7 @@
   width: 35px;
 }
 .idolNameBoxIcon {
-    display: none;
+  display: none;
 }
 .unitListIcon {
   padding: 5px;
