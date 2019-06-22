@@ -59,9 +59,9 @@ class IdolsSelect extends React.Component {
     return(
       <label>
         <div
-          className={`filterCheckboxType${this.props.classNameSuffix} filterCheckbox-${type} ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`}
+          className={`filterCheckboxType filterCheckbox-${type} ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`}
         >
-          <div className={`typeNameBox${this.props.classNameSuffix}`}>
+          <div className="typeNameBox">
             <input
               type="checkbox"
               checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
@@ -72,7 +72,6 @@ class IdolsSelect extends React.Component {
         </div>
       </label>
     )
-
   }
 
   render() {
@@ -215,47 +214,49 @@ class App extends React.Component {
         </div>
         <div className="main">
           <div className="container">
-            <form>
-              <label>
-                <div
-                  className={`changestyleBox${this.state.classNameSuffix}`}
-                  onClick={()=>{this.setClassNameSuffix("")}}
-                >
+            <div className="refineView">
+              <form>
+                <label>
                   <div
-                    className={`changestyleNameBox${this.state.classNameSuffix}`}
+                    className="changestyleBox"
+                    onClick={()=>{this.setClassNameSuffix("")}}
                   >
-                    <input type="radio" name="styles" />
-                    Normal
+                   <div
+                     className="changestyleNameBox"
+                    >
+                      <input type="radio" name="styles" />
+                        Normal
+                   </div>
                   </div>
-                </div>
-              </label>
-              <label>
-                <div
-                  className={`changestyleBox${this.state.classNameSuffix}`}
-                  onClick={()=>{this.setClassNameSuffix("Small")}}
-                >
+                </label>
+               <label>
                   <div
-                    className={`changestyleNameBox${this.state.classNameSuffix}`}
+                    className="changestyleBox"
+                    onClick={()=>{this.setClassNameSuffix("Small")}}
                   >
-                    <input type="radio" name="styles" />
-                    Small
+                    <div
+                      className="changestyleNameBox"
+                    >
+                      <input type="radio" name="styles" />
+                      Small
+                   </div>
                   </div>
-                </div>
-              </label>
-              <label>
-                <div
-                  className={`changestyleBox${this.state.classNameSuffix}`}
-                  onClick={()=>{this.setClassNameSuffix("Icon")}}
-                >
+                </label>
+                <label>
                   <div
-                    className={`changestyleNameBox${this.state.classNameSuffix}`}
+                    className="changestyleBox"
+                    onClick={()=>{this.setClassNameSuffix("Icon")}}
                   >
-                    <input type="radio" name="styles" />
-                    Icon
+                    <div
+                      className="changestyleNameBox"
+                    >
+                      <input type="radio" name="styles" />
+                      Icon
+                    </div>
                   </div>
-                </div>
-              </label>
-            </form>
+                </label>
+              </form>
+            </div>
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}
