@@ -90,7 +90,33 @@
 .typeNameBoxIcon {
   flex: 1;
   min-height: 20px;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255,255,255,0.75);
+  font-size: 0.7em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.changestyleBoxIcon{
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  display: table;
+  border: solid;
+  border-color: #ccc;
+  width: 90px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.changestyleBoxIcon.checked{
+  background-color: #ccc;
+}
+.changestyleNameBoxIcon{
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.75);
   font-size: 0.7em;
   border-radius: 5px;
   display: flex;

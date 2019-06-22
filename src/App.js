@@ -215,9 +215,47 @@ class App extends React.Component {
         </div>
         <div className="main">
           <div className="container">
-            <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("")}}>Normal</button>
-            <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("Small")}}>Small</button>
-            <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("Icon")}}>Icon</button>
+            <form>
+              <label>
+                <div
+                  className={`changestyleBox${this.state.classNameSuffix}`}
+                  onClick={()=>{this.setClassNameSuffix("")}}
+                >
+                  <div
+                    className={`changestyleNameBox${this.state.classNameSuffix}`}
+                  >
+                    <input type="radio" name="styles" />
+                    Normal
+                  </div>
+                </div>
+              </label>
+              <label>
+                <div
+                  className={`changestyleBox${this.state.classNameSuffix}`}
+                  onClick={()=>{this.setClassNameSuffix("Small")}}
+                >
+                  <div
+                    className={`changestyleNameBox${this.state.classNameSuffix}`}
+                  >
+                    <input type="radio" name="styles" />
+                    Small
+                  </div>
+                </div>
+              </label>
+              <label>
+                <div
+                  className={`changestyleBox${this.state.classNameSuffix}`}
+                  onClick={()=>{this.setClassNameSuffix("Icon")}}
+                >
+                  <div
+                    className={`changestyleNameBox${this.state.classNameSuffix}`}
+                  >
+                    <input type="radio" name="styles" />
+                    Icon
+                  </div>
+                </div>
+              </label>
+            </form>
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}
