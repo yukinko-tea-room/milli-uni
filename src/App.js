@@ -105,18 +105,21 @@ class IdolsSelect extends React.Component {
 
 class UnitItem extends React.Component {
   render(){
-    const unitMember = unittoidol[this.props.unit].map((member, i) => {
-        return(
-          <IdolButton
-            key={i}
-            selectedIdols={this.props.selectedIdols}
-            idol={member}
-            classNameSuffix={this.props.classNameSuffix}
-            onClickHandler={(idol)=>this.props.toggleClickHandler(idol)}
-          />
-        );
-      }
-    );
+    const unitMember = unittoidol[this.props.unit]
+    unitMember.sort((a,b)=>{
+      return (this.props.selectedIdols.indexOf(b)!==-1)?1:-1
+    })
+    const memberButtons = unitMember.map((member, i) => {
+      return(
+        <IdolButton
+          key={i}
+          selectedIdols={this.props.selectedIdols}
+          idol={member}
+          classNameSuffix={this.props.classNameSuffix}
+          onClickHandler={(idol)=>this.props.toggleClickHandler(idol)}
+        />
+      )
+    });
 
     return(
       <div key={this.props.unit} className={`unitTable${this.props.classNameSuffix}`}>
@@ -126,7 +129,7 @@ class UnitItem extends React.Component {
           </div>
         </div>
         <div className="unitIdolView">
-          {unitMember}
+          {memberButtons}
         </div>
       </div>
     )
@@ -153,6 +156,9 @@ class App extends React.Component {
         }
       }
     }
+    selectedUnits.sort((a,b)=>{
+      return (unittoidol[a].length > unittoidol[b].length)?-1:1
+    })
     return selectedUnits;
   }
   
