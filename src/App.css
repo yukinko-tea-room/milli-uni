@@ -41,11 +41,6 @@ body {
   
 }
 
-.changeStyleButton{
-  height: 25px;
-  margin: 5px 0;
-}
-
 .main {
   margin-top: 70px;
 }
@@ -121,7 +116,7 @@ body {
   display: flex;
 }
 .unitNameView {
-  background-color: #00c030;
+  background-color: #8dcf9e;
   border: solid;
   border-color: rgb(0, 192, 48);
   border-radius: 5px;
@@ -176,7 +171,7 @@ form {
   justify-content: center;
   text-align: center;
 }
-input[type="checkbox"] {
+input[type="checkbox"], input[type="radio"] {
   display: none;
 }
 .filterCheckboxType.filterCheckbox-princess {
@@ -200,6 +195,32 @@ input[type="checkbox"] {
 .typeNameBox {
   flex: 1;
   min-height: 20px;
+  background-color: rgba(255, 255, 255, 0.75);
+  font-size: 0.7em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.changestyleBox{
+  border: solid;
+  border-color: #ccc;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  display: table;
+  width: 90px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.changestyleBox.checked{
+  background-color: #ccc;
+}
+.changestyleNameBox{
+  flex: 1;
   background-color: rgba(255, 255, 255, 0.75);
   font-size: 0.7em;
   border-radius: 5px;
