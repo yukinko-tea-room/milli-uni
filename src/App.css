@@ -121,7 +121,7 @@ body {
   display: flex;
 }
 .unitNameView {
-  background-color: #00c030;
+  background-color: #8dcf9e;
   border: solid;
   border-color: rgb(0, 192, 48);
   border-radius: 5px;
@@ -139,6 +139,9 @@ body {
   display: table;
   padding: 5px;
   border-radius: 5px;
+}
+.unitComplete {
+  background-color: #ff8;
 }
 
 .deleteButton {

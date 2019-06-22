@@ -120,9 +120,11 @@ class UnitItem extends React.Component {
         />
       )
     });
+    const selectedMember = unitMember.filter(idol=>this.props.selectedIdols.indexOf(idol)!==-1)
+    const completeClassName = (selectedMember.length === unitMember.length)?"unitComplete":""
 
     return(
-      <div key={this.props.unit} className={`unitTable${this.props.classNameSuffix}`}>
+      <div key={this.props.unit} className={`unitTable${this.props.classNameSuffix} ${completeClassName}`}>
         <div className={`unitNameView${this.props.classNameSuffix}`}>
           <div className={`unitNameBox${this.props.classNameSuffix}`}>
             {this.props.unit}
