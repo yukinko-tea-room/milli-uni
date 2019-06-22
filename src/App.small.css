@@ -36,8 +36,9 @@
 .unitTableSmall {
   border: solid;
   border-color: rgb(0, 192, 48);
-  margin: 2px;
+  margin: 7px;
   border-radius: 5px;
+  border-width: 2px;
   display: flex;
 }
 .unitNameViewSmall {
