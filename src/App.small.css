@@ -5,11 +5,11 @@
   border-width: 2px;
   min-width: 100px;
   max-width: 200px;
-  height: 28px;
   margin: 2px;
   align-items: center;
   justify-content: center;
   cursor : pointer;
+  flex: 1;
 }
 .idolImageSmall {
   margin: 2px;
@@ -45,8 +45,8 @@
   border: solid;
   border-color: rgb(0, 192, 48);
   border-radius: 5px;
-  min-width: 120px; 
-  max-width: 120px; 
+  min-width: 80px; 
+  max-width: 80px; 
   margin: 2px;
   padding: 2px;
   flex: 1;

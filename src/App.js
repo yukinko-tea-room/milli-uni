@@ -187,17 +187,21 @@ class App extends React.Component {
       <div>
         <div className="header">
           <div className="container">
-            <h3 className="headerButton">
-              MILLIONLIVE!-UNIT-SEARCH
-            </h3>
-            <div className="headerButton">
-              <button onClick={()=>{this.setClassNameSuffix("")}}>Normal</button>
-              <button onClick={()=>{this.setClassNameSuffix("Small")}}>Small</button>
+            <div className="headerView">
+              <div className="headerTitleView">
+                <h3 className="headerTitleBox">
+                MILLIONLIVE!-UNIT-SEARCH
+                </h3>
+              </div>
+            <div className="headerMenuView">
+            </div>
             </div>
           </div>
         </div>
         <div className="main">
           <div className="container">
+            <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("")}}>Normal</button>
+            <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("Small")}}>Small</button>
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}

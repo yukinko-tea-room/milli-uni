@@ -7,12 +7,18 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  height: 60px;
+  min-height: 60px;
   width: 100%;
   border: none;
   z-index: 1;
 }
-.headerButton {
+.headerView {
+  display: flex;
+}
+.headerTitleView{
+  margin: auto;
+}
+.headerTitleBox {
   color: #fff;
   top: 0;
   left: 0;
@@ -21,8 +27,23 @@ body {
   display: table;
   cursor : pointer;
 }
-.headerButton:hover {
+.headerTitleBox:hover {
   color: rgb(226, 226, 226);
+}
+.headerMenuView {
+  flex: 1;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.headerMenuBox {
+  
+}
+
+.changeStyleButton{
+  height: 25px;
+  margin: 5px 0;
 }
 
 .main {
@@ -179,7 +200,7 @@ input[type="checkbox"] {
 .typeNameBox {
   flex: 1;
   min-height: 20px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.75);
   font-size: 0.7em;
   border-radius: 5px;
   display: flex;
