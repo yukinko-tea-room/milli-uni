@@ -1,5 +1,7 @@
 import React from 'react';
+import './App.css';
 import './App.icon.css';
+import './App.small.css';
 import './idolIcon.css';
 
 import unittoidol  from "./unit-to-idol.json";
@@ -18,15 +20,17 @@ class IdolButton extends React.Component {
 
     return (
       <div
-        className={"idolBox"}
+        className={`idolBox${this.props.classNameSuffix}`}
         id={this.props.idol}
         style={style} onClick={()=>{
           this.props.onClickHandler(this.props.idol);
         }}
       >
         <div className="boxContainer">
-          <div className={`idolImage idolIcon-${this.props.idol}`} />
-          <div className={`idolNameBox${this.props.classNameSuffix}`} />
+          <div className={`idolImage${this.props.classNameSuffix} idolIcon-${this.props.idol}`}></div>
+          <div className={`idolNameBox${this.props.classNameSuffix}`}>
+            {idolData[this.props.idol].screenName}
+          </div>
         </div>
       </div>
     );
@@ -56,9 +60,9 @@ class IdolsSelect extends React.Component {
     return(
       <label>
         <div
-          className={`filterCheckboxType filterCheckbox-${type} ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`}
+          className={`filterCheckboxType${this.props.classNameSuffix} filterCheckbox-${type} ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`}
         >
-          <div className="typeNameBox">
+          <div className={`typeNameBox${this.props.classNameSuffix}`}>
             <input
               type="checkbox"
               checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
@@ -82,6 +86,7 @@ class IdolsSelect extends React.Component {
           key={index}
           selectedIdols={this.props.selectedIdols}
           idol={idol}
+          classNameSuffix={this.props.classNameSuffix}
           onClickHandler={(idol)=>this.props.onClickHandler(idol)}
         />
       );
@@ -107,6 +112,7 @@ class UnitItem extends React.Component {
             key={i}
             selectedIdols={this.props.selectedIdols}
             idol={member}
+            classNameSuffix={this.props.classNameSuffix}
             onClickHandler={(idol)=>this.props.toggleClickHandler(idol)}
           />
         );
@@ -114,9 +120,9 @@ class UnitItem extends React.Component {
     );
 
     return(
-      <div key={this.props.unit} className="unitTable">
-        <div className="unitNameView">
-          <div className="unitNameBox">
+      <div key={this.props.unit} className={`unitTable${this.props.classNameSuffix}`}>
+        <div className={`unitNameView${this.props.classNameSuffix}`}>
+          <div className={`unitNameBox${this.props.classNameSuffix}`}>
             {this.props.unit}
           </div>
         </div>
@@ -135,6 +141,7 @@ class App extends React.Component {
       listIdols: Object.keys(idoltounit),
       selectedIdols: [],
       selectedUnits: [],
+      classNameSuffix: "",
     }
   }
 
@@ -162,6 +169,9 @@ class App extends React.Component {
       this.setState({ selectedIdols: selected, selectedUnits: units });
     }
   }
+  setClassNameSuffix(suffix){
+    this.setState({classNameSuffix: suffix})
+  }
 
   render() {
     const units = [];
@@ -171,6 +181,7 @@ class App extends React.Component {
           key={i}
           unit={i}
           selectedIdols={this.state.selectedIdols}
+          classNameSuffix={this.state.classNameSuffix}
           toggleClickHandler={(idol)=>this.toggleIdol(idol)}
         />
       )
@@ -180,21 +191,30 @@ class App extends React.Component {
       <div>
         <div className="header">
           <div className="container">
-            <h3 className="headerButton">
-              MILLIONLIVE!-UNIT-SEARCH
-            </h3>
+            <div className="headerView">
+              <div className="headerTitleView">
+                <h3 className="headerTitleBox">
+                MILLIONLIVE!-UNIT-SEARCH
+                </h3>
+              </div>
+            <div className="headerMenuView">
+            </div>
+            </div>
           </div>
         </div>
         <div className="main">
           <div className="container">
+            <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("")}}>Normal</button>
+            <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("Small")}}>Small</button>
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}
+              classNameSuffix={this.state.classNameSuffix}
               onClickHandler={(idol)=>this.toggleIdol(idol)}
             />
             <div className="unitView">
               <div className="unitBox">
-                <div className="unitList">
+                <div className={`unitList${this.state.classNameSuffix}`}>
                   {units}
                 </div>
               </div>
