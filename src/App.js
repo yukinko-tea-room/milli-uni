@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.icon.css';
 import './idolIcon.css';
 
 import unittoidol  from "./unit-to-idol.json";
@@ -9,10 +9,11 @@ import idolData from "./idolData.json";
 class IdolButton extends React.Component {
   render() {
     var style = {
-      borderColor: idolData[this.props.idol].color
+      borderColor: "#ccc"
     }
     if(this.props.selectedIdols.indexOf(this.props.idol) !== -1){
       style["backgroundColor"] = idolData[this.props.idol].color
+      style["borderColor"] = idolData[this.props.idol].color
     }
 
     return (
@@ -23,10 +24,7 @@ class IdolButton extends React.Component {
           this.props.onClickHandler(this.props.idol);
         }}
       >
-        <div className="boxContainer">
-          <div className={`idolImage idolIcon-${this.props.idol}`}></div>
-          <div className="idolNameBox">{this.props.idol}</div>
-        </div>
+        <div className={`idolImage idolIcon-${this.props.idol}`}></div>
       </div>
     );
   }
