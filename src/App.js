@@ -11,11 +11,10 @@ import idolData from "./idolData.json";
 class IdolButton extends React.Component {
   render() {
     var style = {
-      borderColor: "#ccc"
+      borderColor: idolData[this.props.idol].color
     }
     if(this.props.selectedIdols.indexOf(this.props.idol) !== -1){
       style["backgroundColor"] = idolData[this.props.idol].color
-      style["borderColor"] = idolData[this.props.idol].color
     }
 
     return (
@@ -206,6 +205,7 @@ class App extends React.Component {
           <div className="container">
             <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("")}}>Normal</button>
             <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("Small")}}>Small</button>
+            <button className="changeStyleButton" onClick={()=>{this.setClassNameSuffix("Icon")}}>Icon</button>
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}
