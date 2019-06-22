@@ -180,20 +180,26 @@ input[type="checkbox"], input[type="radio"] {
 .filterCheckboxType.filterCheckbox-princess {
   border-color: #ff2383;
 }
-.filterCheckboxType.filterCheckbox-fairy {
-  border-color: #025efd;
-}
-.filterCheckboxType.filterCheckbox-angel {
-  border-color: #ffbb00;
-}
 .filterCheckboxType.filterCheckbox-princess.checked {
   background-color: #ff2383;
+}
+.filterCheckboxType.filterCheckbox-fairy {
+  border-color: #025efd;
 }
 .filterCheckboxType.filterCheckbox-fairy.checked {
   background-color: #025efd;
 }
+.filterCheckboxType.filterCheckbox-angel {
+  border-color: #ffbb00;
+}
 .filterCheckboxType.filterCheckbox-angel.checked {
   background-color: #ffbb00;
+}
+.filterCheckboxType.filterCheckbox-selecting {
+  border-color: #88ff88;;
+}
+.filterCheckboxType.filterCheckbox-selecting.checked {
+  background-color: #88ff88;
 }
 .typeNameBox {
   flex: 1;

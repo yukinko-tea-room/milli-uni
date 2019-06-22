@@ -72,20 +72,26 @@
 .filterCheckboxTypeIcon.filterCheckbox-princess {
   border-color: #ff2383;
 }
-.filterCheckboxTypeIcon.filterCheckbox-fairy {
-  border-color: #025efd;
-}
-.filterCheckboxTypeIcon.filterCheckbox-angel {
-  border-color: #ffbb00;
-}
 .filterCheckboxTypeIcon.filterCheckbox-princess.checked {
   background-color: #ff2383;
+}
+.filterCheckboxTypeIcon.filterCheckbox-fairy {
+  border-color: #025efd;
 }
 .filterCheckboxTypeIcon.filterCheckbox-fairy.checked {
   background-color: #025efd;
 }
+.filterCheckboxTypeIcon.filterCheckbox-angel {
+  border-color: #ffbb00;
+}
 .filterCheckboxTypeIcon.filterCheckbox-angel.checked {
   background-color: #ffbb00;
+}
+.filterCheckboxTypeIcon.filterCheckbox-selecting {
+  border-color: #88ff88;;
+}
+.filterCheckboxTypeIcon.filterCheckbox-selecting.checked {
+  background-color: #88ff88;
 }
 .typeNameBoxIcon {
   flex: 1;
