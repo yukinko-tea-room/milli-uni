@@ -203,7 +203,7 @@ input[type="checkbox"], input[type="radio"] {
 }
 .typeNameBox {
   flex: 1;
-  min-height: 20px;
+  padding: 2px;
   background-color: rgba(255, 255, 255, 0.75);
   font-size: 0.7em;
   border-radius: 5px;
@@ -233,6 +233,7 @@ input[type="checkbox"], input[type="radio"] {
   background-color: rgba(255, 255, 255, 0.75);
   font-size: 0.7em;
   border-radius: 5px;
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
