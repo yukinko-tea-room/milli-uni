@@ -89,13 +89,10 @@ body {
 }
 
 .unitView {
-  display: flex;
-  flex-direction: column-reverse;
+  margin: auto;
 }
 .unitBox {
-  border-radius: 5px;
   position: relative;
-  padding: auto;
 }
 .unitIdolView {
   display: flex;
@@ -218,7 +215,6 @@ input[type="checkbox"], input[type="radio"] {
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
-  display: table;
   width: 90px;
   cursor: pointer;
   align-items: center;
