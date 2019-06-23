@@ -4,8 +4,8 @@ import './App.icon.css';
 import './App.small.css';
 import './idolIcon.css';
 
-import unittoidol  from "./unit-to-idol.json";
-import idoltounit  from "./idol-to-unit.json";
+import unitToIdol  from "./unitToIdol.json";
+import idolToUnit  from "./idolToUnit.json";
 import idolData from "./idolData.json";
 
 class IdolButton extends React.Component {
@@ -108,7 +108,7 @@ class IdolsSelect extends React.Component {
 
 class UnitItem extends React.Component {
   render(){
-    const unitMember = unittoidol[this.props.unit]
+    const unitMember = unitToIdol[this.props.unit]
     unitMember.sort((a,b)=>{
       return (this.props.selectedIdols.indexOf(b)!==-1)?1:-1
     })
@@ -145,7 +145,7 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      listIdols: Object.keys(idoltounit),
+      listIdols: Object.keys(idolToUnit),
       selectedIdols: [],
       selectedUnits: [],
       classNameSuffix: "",
@@ -155,18 +155,18 @@ class App extends React.Component {
   updateSelectedUnits(idols){
     const selectedUnits = []
     for(const idol of idols){
-      for(const unit of idoltounit[idol]){
+      for(const unit of idolToUnit[idol]){
         if(selectedUnits.indexOf(unit) === -1){
           selectedUnits.push(unit)
         }
       }
     }
     selectedUnits.sort((a,b)=>{
-      return (unittoidol[a].length > unittoidol[b].length)?-1:1
+      return (unitToIdol[a].length > unitToIdol[b].length)?-1:1
     })
     selectedUnits.sort((a,b)=>{
-        const selectedMember = unittoidol[a].filter(idol=>idols.indexOf(idol)!==-1)
-        return (selectedMember.length === unittoidol[a].length)?-1:1 
+        const selectedMember = unitToIdol[a].filter(idol=>idols.indexOf(idol)!==-1)
+        return (selectedMember.length === unitToIdol[a].length)?-1:1 
     })
     return selectedUnits;
   }
