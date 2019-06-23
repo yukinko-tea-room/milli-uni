@@ -3,8 +3,8 @@
 import csv
 import json
 
-uti_csv = open('unit-to-idol.csv', 'r')
-uti_json = open('unit-to-idol.json', 'w')
+uti_csv = open('unitToIdol.csv', 'r')
+uti_json = open('unitToIdol.json', 'w')
 uti_reader = csv.reader(uti_csv)
 header = next(uti_reader)
 data=dict()
@@ -17,8 +17,8 @@ json.dump(data, uti_json, ensure_ascii=False)
 uti_csv.close()
 uti_json.close()
 
-itu_csv = open('idol-to-unit.csv', 'r')
-itu_json = open('idol-to-unit.json', 'w')
+itu_csv = open('idolToUnit.csv', 'r')
+itu_json = open('idolToUnit.json', 'w')
 itu_reader = csv.reader(itu_csv)
 header = next(itu_reader)
 data.clear()
