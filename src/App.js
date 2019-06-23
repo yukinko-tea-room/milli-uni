@@ -184,6 +184,14 @@ class App extends React.Component {
     }
   }
 
+  addRandomIdol(){
+    if (this.state.selectedIdols.length === this.state.listIdols.length){
+      return null
+    }
+    const notSelectedIdols = this.state.listIdols.filter(v=>this.state.selectedIdols.indexOf(v)===-1)
+    this.toggleIdol(notSelectedIdols[Math.floor(Math.random()*notSelectedIdols.length)])
+  }
+
   setClassNameSuffix(suffix){
     this.setState({classNameSuffix: suffix})
   }
@@ -262,6 +270,7 @@ class App extends React.Component {
                 </label>
               </form>
             </div>
+            <button onClick={()=>this.addRandomIdol()} >ランダムに選択</button>
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}
