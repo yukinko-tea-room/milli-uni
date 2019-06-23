@@ -279,10 +279,8 @@ class App extends React.Component {
               onClickHandler={(idol)=>this.toggleIdol(idol)}
             />
             <div className="unitView">
-              <div className="unitBox">
-                <div className={`unitList${this.state.classNameSuffix}`}>
+              <div className={`unitList${this.state.classNameSuffix}`}>
                   {units}
-                </div>
               </div>
             </div>
           </div>
