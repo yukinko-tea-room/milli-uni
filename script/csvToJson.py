@@ -5,14 +5,20 @@ import json
 
 uti_csv = open('unitToIdol.csv', 'r')
 uti_json = open('unitToIdol.json', 'w')
+unitname_json = open('unitName.json', 'w')
 uti_reader = csv.reader(uti_csv)
 header = next(uti_reader)
 data=dict()
+unitFixer=dict()
 for row in uti_reader:
+    unitName = [i for i in row[:3] if i != ''][0]
     for unit in [i for i in row[:3] if i != '']:
-        data.update({ unit: [i for i in row[3:] if i != '']})
+        unitFixer.update({unit: unitName})
+    data.update({ unitName: [i for i in row[3:] if i != '']})
+
 
 json.dump(data, uti_json, ensure_ascii=False)
+json.dump(unitFixer, unitname_json, ensure_ascii=False)
 
 uti_csv.close()
 uti_json.close()
