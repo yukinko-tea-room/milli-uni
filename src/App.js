@@ -162,14 +162,30 @@ class App extends React.Component {
         }
       }
     }
-    selectedUnits.sort((a,b)=>{
-      return (unitToIdol[unitName[a]].length > unitToIdol[unitName[b]].length)?-1:1
+    var unitSortIndex = selectedUnits.map((u,index)=>{
+      var match = 0
+      var score = 0
+      unitToIdol[unitName[u]].map((i)=>{
+        //ユニットメンバー1人につき1点
+        score += 1
+        //選択済みメンバー1人につき100点
+        if(idols.indexOf(i) !== -1){
+          match ++
+          score += 100
+        }
+        return null
+      })
+      //ユニットメンバー全員選択済みなら10000点
+      if (unitToIdol[unitName[u]].length === match){
+        score += 10000
+      }
+      return {name: unitName[u], index: index, score: score}
     })
-    selectedUnits.sort((a,b)=>{
-        const selectedMember = unitToIdol[unitName[a]].filter(idol=>idols.indexOf(idol)!==-1)
-        return (selectedMember.length === unitToIdol[unitName[a]].length)?-1:1 
+    unitSortIndex.sort((a,b)=>{return (a.score > b.score)?-1:1})
+    console.log(unitSortIndex)
+    return unitSortIndex.map((e)=>{
+      return selectedUnits[e.index]
     })
-    return selectedUnits;
   }
   
   toggleIdol(idol) {
