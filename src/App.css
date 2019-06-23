@@ -218,7 +218,6 @@ input[type="checkbox"], input[type="radio"] {
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
-  display: table;
   width: 90px;
   cursor: pointer;
   align-items: center;
