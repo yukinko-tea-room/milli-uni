@@ -57,6 +57,14 @@ class IdolsSelect extends React.Component {
     this.setState({filterType: type})
   }
   
+  addRandomIdol(){
+    if (this.props.selectedIdols.length === this.props.idols.length){
+      return null
+    }
+    const notSelectedIdols = this.props.idols.filter(v=>this.props.selectedIdols.indexOf(v)===-1)
+    this.props.onClickHandler(notSelectedIdols[Math.floor(Math.random()*notSelectedIdols.length)])
+  }
+
   filterButtonBuilder(type){
     return(
       <label>
@@ -205,14 +213,6 @@ class App extends React.Component {
       const units = this.updateSelectedUnits(selected)
       this.setState({ selectedIdols: selected, selectedUnits: units });
     }
-  }
-
-  addRandomIdol(){
-    if (this.state.selectedIdols.length === this.state.listIdols.length){
-      return null
-    }
-    const notSelectedIdols = this.state.listIdols.filter(v=>this.state.selectedIdols.indexOf(v)===-1)
-    this.toggleIdol(notSelectedIdols[Math.floor(Math.random()*notSelectedIdols.length)])
   }
 
   setClassNameSuffix(suffix){
