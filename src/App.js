@@ -228,7 +228,10 @@ class App extends React.Component {
         </div>
         <div className="main">
           <div className="container">
-            <div className="refineView">
+            <div>
+              <button onClick={()=>{this.setState({})}}>設定</button>
+            </div>
+            <dialog id="dialog">
               <form>
                 <label>
                   <div
@@ -270,8 +273,8 @@ class App extends React.Component {
                   </div>
                 </label>
               </form>
-            </div>
             <button onClick={()=>this.addRandomIdol()} >ランダムに選択</button>
+            </dialog>
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}
