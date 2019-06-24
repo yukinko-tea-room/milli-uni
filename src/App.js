@@ -105,7 +105,7 @@ class IdolsSelect extends React.Component {
           {this.filterButtonBuilder("angel")}
           {this.filterButtonBuilder("selecting")}
         </form>
-        <div className="idolTable">
+        <div className={`idolTable ${this.state.filterType}`}>
           {buttons}
         </div>
       </div>
