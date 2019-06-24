@@ -41,19 +41,20 @@ class IdolsSelect extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      filterType: ["princess", "fairy", "angel"],
+      filterType: ["princess"],
     }
   }
 
   setFilter(type){
-    if(this.state.filterType.indexOf(type) !== -1){
-      const filterType = this.state.filterType.filter(v=>v!==type)
-      this.setState({filterType: filterType})
-    }else{
-      const filterType = this.state.filterType
-      filterType.push(type)
-      this.setState({filterType: filterType})
-    }
+    //if(this.state.filterType.indexOf(type) !== -1){
+    //  const filterType = this.state.filterType.filter(v=>v!==type)
+    //  this.setState({filterType: filterType})
+    //}else{
+    //  const filterType = this.state.filterType
+    //  filterType.push(type)
+    //  this.setState({filterType: filterType})
+    //}
+    this.setState({filterType: type})
   }
   
   filterButtonBuilder(type){
