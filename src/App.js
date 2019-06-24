@@ -41,7 +41,7 @@ class IdolsSelect extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      filterType: ["princess"],
+      filterType: ["all"],
     }
   }
 
@@ -78,10 +78,12 @@ class IdolsSelect extends React.Component {
 
   render() {
     const buttons = this.props.idols.map((idol, index) => {
-      if(this.state.filterType.indexOf(idolData[idol].type) === -1){
-        if(this.state.filterType.indexOf("selecting") === -1 ||
-           this.props.selectedIdols.indexOf(idol) === -1){
-          return null
+      if(this.state.filterType !== "all"){
+        if(this.state.filterType.indexOf(idolData[idol].type) === -1){
+          if(this.state.filterType.indexOf("selecting") === -1 ||
+             this.props.selectedIdols.indexOf(idol) === -1){
+            return null
+          }
         }
       }
       return(
@@ -97,6 +99,7 @@ class IdolsSelect extends React.Component {
     return (
       <div className="idolView">
         <form>
+          {this.filterButtonBuilder("all")}
           {this.filterButtonBuilder("princess")}
           {this.filterButtonBuilder("fairy")}
           {this.filterButtonBuilder("angel")}
