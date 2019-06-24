@@ -255,6 +255,20 @@ input[type="checkbox"], input[type="radio"] {
   justify-content: center;
 }
 
+.randomButton {
+  border-radius: 5px;
+  background-color: #fff;
+  border: solid;
+  border-color: rgb(94, 94, 94);
+  min-width: 150px;
+  max-width: 200px;
+  margin: 5px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  cursor : pointer;
+}
+
 .boxContainer {
   text-align: center;
   display: flex;
