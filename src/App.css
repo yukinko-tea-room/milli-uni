@@ -56,6 +56,10 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+.idolTable {
+  display: flex;
+  flex-wrap: wrap;
+}
 .idolBox {
   border-radius: 5px;
   background-color: #fff;
@@ -156,7 +160,6 @@ body {
 
 form {
   display: flex;
-  flex-wrap: wrap;
   min-width: 100%;
 }
 .filterCheckboxType {
