@@ -26,7 +26,7 @@ class IdolButton extends React.Component {
           this.props.onClickHandler(this.props.idol);
         }}
       >
-        <div className={`deleteButton${this.props.classNameSuffix}`} onClick={console.log("Click")} />
+        <div className={`deleteButton${this.props.classNameSuffix}`} onClick={(e)=>this.props.deleteIdolHandler(e, this.props.idol)} />
         <div className="boxContainer">
           <div className={`idolImage${this.props.classNameSuffix} idolIcon-${this.props.idol}`}></div>
           <div className={`idolNameBox${this.props.classNameSuffix}`}>
@@ -89,6 +89,7 @@ class IdolsSelect extends React.Component {
           key={index}
           selectedIdols={this.props.selectedIdols}
           idol={idol}
+          deleteIdolHandler={(e,idol)=>this.props.deleteIdolHandler(e,idol)}
           classNameSuffix={this.props.classNameSuffix}
           onClickHandler={(idol)=>this.props.onClickHandler(idol)}
         />
@@ -120,6 +121,7 @@ class UnitItem extends React.Component {
           key={i}
           selectedIdols={this.props.selectedIdols}
           idol={member}
+          deleteIdolHandler={(e,idol)=>this.props.deleteIdolHandler(e,idol)}
           classNameSuffix={this.props.classNameSuffix}
           onClickHandler={(idol)=>this.props.toggleClickHandler(idol)}
         />
@@ -148,6 +150,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       listIdols: Object.keys(idolToUnit),
+      deletedIdols: [],
       selectedIdols: [],
       selectedUnits: [],
       classNameSuffix: "",
@@ -213,6 +216,15 @@ class App extends React.Component {
   setClassNameSuffix(suffix){
     this.setState({classNameSuffix: suffix})
   }
+  deleteIdol(e, idol){
+    e.stopPropagation()
+    console.log(this.state.deletedIdols)
+    if(this.state.deletedIdols.indexOf(idol)===-1){
+      const deletedIdols = this.state.deletedIdols
+      deletedIdols.push(idol)
+      this.setState({deletedIdols: deletedIdols})
+    }
+  }
 
   render() {
     const units = [];
@@ -223,6 +235,7 @@ class App extends React.Component {
           unit={i}
           selectedIdols={this.state.selectedIdols}
           classNameSuffix={this.state.classNameSuffix}
+          deleteIdolHandler={(e, idol)=>this.deleteIdol(e, idol)}
           toggleClickHandler={(idol)=>this.toggleIdol(idol)}
         />
       )
@@ -292,6 +305,7 @@ class App extends React.Component {
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}
+              deleteIdolHandler={(e, idol)=>this.deleteIdol(e, idol)}
               classNameSuffix={this.state.classNameSuffix}
               onClickHandler={(idol)=>this.toggleIdol(idol)}
             />
