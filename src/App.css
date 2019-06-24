@@ -167,13 +167,10 @@ body {
 form {
   display: flex;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: scroll;
   white-space: nowrap;
   margin: 0 5px;
-}
-form::-webkit-scrollbar {
-  display: none;
-  -webkit-appearance: none;
+  -webkit-overflow-scrolling: touch;
 }
 .filterCheckboxType {
   flex: 1;

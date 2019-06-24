@@ -107,6 +107,7 @@ class IdolsSelect extends React.Component {
         </form>
         <div className={`idolTable ${this.state.filterType}`}>
           {buttons}
+          <button onClick={()=>this.addRandomIdol()} >ランダムに選択</button>
         </div>
       </div>
     );
@@ -292,7 +293,6 @@ class App extends React.Component {
                 </label>
               </form>
             </div>
-            <button onClick={()=>this.addRandomIdol()} >ランダムに選択</button>
             <IdolsSelect
               idols={this.state.listIdols}
               selectedIdols={this.state.selectedIdols}
