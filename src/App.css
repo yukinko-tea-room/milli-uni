@@ -59,9 +59,11 @@ body {
 .idolTable {
   background-color: #ccc;
   border-radius: 5px;
+  border: solid;
   margin: 0px;
   padding: 5px;
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
 }
 .idolBox {
@@ -164,14 +166,16 @@ body {
 
 form {
   display: flex;
+  flex-wrap: wrap;
   min-width: 100%;
 }
 .filterCheckboxType {
   flex: 1;
   border: solid;
+  border-bottom: none;
   width: 90px;
   padding: 5px;
-  margin: 5px 5px 0 5px;
+  margin: 0 5px;
   border-radius: 5px 5px 0 0;
   cursor: pointer;
   align-items: center;
@@ -181,25 +185,31 @@ form {
 input[type="checkbox"], input[type="radio"] {
   display: none;
 }
-.filterCheckboxType.filterCheckbox-princess {
+.filterCheckboxType.filterCheckbox-all, .idolTable.all {
+  border-color: #000;
+}
+.filterCheckboxType.filterCheckbox-all.checked {
+  background-color: #000;
+}
+.filterCheckboxType.filterCheckbox-princess, .idolTable.princess {
   border-color: #ff2383;
 }
 .filterCheckboxType.filterCheckbox-princess.checked {
   background-color: #ff2383;
 }
-.filterCheckboxType.filterCheckbox-fairy {
+.filterCheckboxType.filterCheckbox-fairy, .idolTable.fairy {
   border-color: #025efd;
 }
 .filterCheckboxType.filterCheckbox-fairy.checked {
   background-color: #025efd;
 }
-.filterCheckboxType.filterCheckbox-angel {
+.filterCheckboxType.filterCheckbox-angel, .idolTable.angel {
   border-color: #ffbb00;
 }
 .filterCheckboxType.filterCheckbox-angel.checked {
   background-color: #ffbb00;
 }
-.filterCheckboxType.filterCheckbox-selecting {
+.filterCheckboxType.filterCheckbox-selecting, .idolTable.selecting {
   border-color: #88ff88;;
 }
 .filterCheckboxType.filterCheckbox-selecting.checked {
