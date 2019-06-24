@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position:relative;
 }
 .idolImageIcon {
   border-radius: 5px;
@@ -55,6 +56,60 @@
   display: table;
   padding: 5px;
   border-radius: 5px;
+}
+
+.deleteButtonIcon {
+  font-family: Helvetica Neue;
+  font-size: 1em;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+	top: -5px;
+	right: -5px;
+	width: 10px;
+  height: 10px;
+	cursor: pointer;
+	border: 0;
+	border-radius: 50%;
+}
+.deleteButtonIcon:before{
+  content:"";
+  position:absolute;
+  display:inline-block;
+  top:1.5px;
+  left:4.5px;
+  width:1.5px;
+  height:6.5px;
+  border:0;
+  margin:0;
+  padding:0;
+  background-color:white;
+  -moz-transform:rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  transform:rotate(45deg);
+}
+.deleteButtonIcon:after{
+  content:"";
+  position:absolute;
+  display:inline-block;
+  top:1.5px;
+  left:4.5px;
+  width:1.5px;
+  height:6.5px;
+  border:0;
+  margin:0;
+  padding:0;
+  background-color:white;
+  -moz-transform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg);
+  transform:rotate(-45deg);
+}
+.deleteButtonIcon:hover {
+  background-color: red;
 }
 
 .filterCheckboxTypeIcon {

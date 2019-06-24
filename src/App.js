@@ -26,6 +26,7 @@ class IdolButton extends React.Component {
           this.props.onClickHandler(this.props.idol);
         }}
       >
+        <div className={`deleteButton${this.props.classNameSuffix}`} onClick={console.log("Click")} />
         <div className="boxContainer">
           <div className={`idolImage${this.props.classNameSuffix} idolIcon-${this.props.idol}`}></div>
           <div className={`idolNameBox${this.props.classNameSuffix}`}>

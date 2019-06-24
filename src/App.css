@@ -59,6 +59,7 @@ body {
 .idolBox {
   border-radius: 5px;
   background-color: #fff;
+  position:relative;
   border: solid;
   border-width: 5px;
   min-width: 150px;
@@ -144,14 +145,50 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #fff;
-	top: 5px;
-	right: 5px;
-	width: 25px;
-  height: 25px;
+  background-color: #000;
+  color: #fff;
+	top: -10px;
+	right: -10px;
+	width: 20px;
+  height: 20px;
 	cursor: pointer;
 	border: 0;
 	border-radius: 50%;
+}
+.deleteButton:before{
+  content:"";
+  position:absolute;
+  display:inline-block;
+  top:3px;
+  left:9px;
+  width:3px;
+  height:13px;
+  border:0;
+  margin:0;
+  padding:0;
+  background-color:white;
+  -moz-transform:rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  transform:rotate(45deg);
+}
+.deleteButton:after{
+  content:"";
+  position:absolute;
+  display:inline-block;
+  top:3px;
+  left:9px;
+  width:3px;
+  height:13px;
+  border:0;
+  margin:0;
+  padding:0;
+  background-color:white;
+  -moz-transform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg);
+  transform:rotate(-45deg);
+}
+.deleteButton:hover {
+  background-color: red;
 }
 
 form {
