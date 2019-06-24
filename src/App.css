@@ -166,8 +166,15 @@ body {
 
 form {
   display: flex;
-  flex-wrap: wrap;
   min-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin: 0 5px;
+}
+form::-webkit-scrollbar {
+  display: none;
+  -webkit-appearance: none;
 }
 .filterCheckboxType {
   flex: 1;
@@ -175,7 +182,7 @@ form {
   border-bottom: none;
   width: 90px;
   padding: 5px;
-  margin: 0 5px;
+  margin: 0;
   border-radius: 5px 5px 0 0;
   cursor: pointer;
   align-items: center;
