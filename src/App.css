@@ -57,6 +57,10 @@ body {
   flex-wrap: wrap;
 }
 .idolTable {
+  background-color: #ccc;
+  border-radius: 5px;
+  margin: 0px;
+  padding: 5px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -167,8 +171,8 @@ form {
   border: solid;
   width: 90px;
   padding: 5px;
-  margin: 5px;
-  border-radius: 5px;
+  margin: 5px 5px 0 5px;
+  border-radius: 5px 5px 0 0;
   cursor: pointer;
   align-items: center;
   justify-content: center;
