@@ -188,7 +188,6 @@ class App extends React.Component {
       return {name: unitName[u], index: index, score: score}
     })
     unitSortIndex.sort((a,b)=>{return (a.score > b.score)?-1:1})
-    console.log(unitSortIndex)
     return unitSortIndex.map((e)=>{
       return selectedUnits[e.index]
     })
