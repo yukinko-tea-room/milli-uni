@@ -1,0 +1,150 @@
+.header {
+  background-color: rgb(60, 60, 60);
+}
+.headerTitleBox {
+  color: #fff;
+}
+.headerTitleBox:hover {
+  color: rgb(226, 226, 226);
+}
+.headerMenuView {
+  color: #fff;
+}
+.headerMenuBox {
+  
+}
+
+.idolBox {
+  background-color: #fff;
+}
+.idolNameBox {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.unitTable {
+  border-color: rgb(0, 192, 48);
+}
+.unitNameView {
+  background-color: #8dcf9e;
+  border-color: rgb(0, 192, 48);
+}
+.unitNameBox {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.unitComplete {
+  background-color: #ff8;
+}
+
+.deleteButton {
+  background-color: #fff;
+}
+
+.filterCheckboxType.filterCheckbox-princess {
+  border-color: #ff2383;
+}
+.filterCheckboxType.filterCheckbox-princess.checked {
+  background-color: #ff2383;
+}
+.filterCheckboxType.filterCheckbox-fairy {
+  border-color: #025efd;
+}
+.filterCheckboxType.filterCheckbox-fairy.checked {
+  background-color: #025efd;
+}
+.filterCheckboxType.filterCheckbox-angel {
+  border-color: #ffbb00;
+}
+.filterCheckboxType.filterCheckbox-angel.checked {
+  background-color: #ffbb00;
+}
+.filterCheckboxType.filterCheckbox-selecting {
+  border-color: #88ff88;;
+}
+.filterCheckboxType.filterCheckbox-selecting.checked {
+  background-color: #88ff88;
+}
+.typeNameBox {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.changestyleBox{
+  border-color: #ccc;
+}
+.changestyleBox.checked{
+  background-color: #ccc;
+}
+.changestyleNameBox{
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+  .header {
+    background-color: #212121;
+  }
+  .idolBox {
+    background-color: #000;
+  }
+  .idolNameBox {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+  }
+
+  .unitTable {
+    border-color: rgb(0, 105, 33);
+  }
+  .unitNameView {
+    background-color: #5a8564;
+    border-color: rgb(0, 105, 33);
+  }
+  .unitNameBox {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  .unitComplete {
+    background-color: #ff8;
+  }
+  
+  .deleteButton {
+    background-color: #fff;
+  }
+  
+  .filterCheckboxType.filterCheckbox-princess {
+    border-color: #ff2383;
+  }
+  .filterCheckboxType.filterCheckbox-princess.checked {
+    background-color: #ff2383;
+  }
+  .filterCheckboxType.filterCheckbox-fairy {
+    border-color: #025efd;
+  }
+  .filterCheckboxType.filterCheckbox-fairy.checked {
+    background-color: #025efd;
+  }
+  .filterCheckboxType.filterCheckbox-angel {
+    border-color: #ffbb00;
+  }
+  .filterCheckboxType.filterCheckbox-angel.checked {
+    background-color: #ffbb00;
+  }
+  .filterCheckboxType.filterCheckbox-selecting {
+    border-color: #88ff88;;
+  }
+  .filterCheckboxType.filterCheckbox-selecting.checked {
+    background-color: #88ff88;
+  }
+  .typeNameBox {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .changestyleBox{
+    border-color: #ccc;
+  }
+  .changestyleBox.checked{
+    background-color: #ccc;
+  }
+  .changestyleNameBox{
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+}
