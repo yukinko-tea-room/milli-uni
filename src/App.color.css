@@ -14,20 +14,20 @@
   
 }
 
-.idolBox {
+.idolBox, .idolBoxSmall {
   background-color: #fff;
 }
-.idolNameBox {
+.idolNameBox, .idolNameBoxSmall {
   background-color: rgba(255, 255, 255, 0.75);
 }
-.unitTable {
+.unitTable, .unitTableSmall, .unitTableIcon {
   border-color: rgb(0, 192, 48);
 }
-.unitNameView {
+.unitNameView, .unitNameViewSmall, .unitNameViewIcon {
   background-color: #8dcf9e;
   border-color: rgb(0, 192, 48);
 }
-.unitNameBox {
+.unitNameBox, .unitNameBoxSmall, .unitNameBoxIcon {
   background-color: rgba(255, 255, 255, 0.75);
 }
 .unitComplete {
@@ -62,17 +62,17 @@
 .filterCheckboxType.filterCheckbox-selecting.checked {
   background-color: #88ff88;
 }
-.typeNameBox {
+.typeNameBox, .typeNameBoxSmall, .typeNameBoxIcon {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-.changestyleBox{
+.changestyleBox, .changestyleBoxSmall, .changestyleBoxIcon {
   border-color: #ccc;
 }
-.changestyleBox.checked{
+.changestyleBox.checked, .changestyleBoxSmall.checked, .changestyleBoxIcon.checked {
   background-color: #ccc;
 }
-.changestyleNameBox{
+.changestyleNameBox, .changestyleNameBoxSmall, .changestyleNameBoxIcon {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
@@ -84,22 +84,22 @@
   .header {
     background-color: #212121;
   }
-  .idolBox {
+  .idolBox, .idolBoxSmall {
     background-color: #000;
   }
-  .idolNameBox {
+  .idolNameBox, .idolNameBoxSmall {
     background-color: rgba(0, 0, 0, 0.75);
     color: #fff;
   }
 
-  .unitTable {
+  .unitTable, .unitTableSmall, .unitTableIcon {
     border-color: rgb(0, 105, 33);
   }
-  .unitNameView {
+  .unitNameView, .unitNameViewSmall, .unitNameViewIcon {
     background-color: #5a8564;
     border-color: rgb(0, 105, 33);
   }
-  .unitNameBox {
+  .unitNameBox, .unitNameBoxSmall, .unitNameBoxIcon {
     background-color: rgba(0, 0, 0, 0.75);
   }
   .unitComplete {
@@ -134,17 +134,17 @@
   .filterCheckboxType.filterCheckbox-selecting.checked {
     background-color: #88ff88;
   }
-  .typeNameBox {
+  .typeNameBox, .typeNameBoxSmall {
     background-color: rgba(0, 0, 0, 0.75);
   }
   
-  .changestyleBox{
+  .changestyleBox, .changestyleBoxSmall, .changestyleBoxIcon {
     border-color: #ccc;
   }
-  .changestyleBox.checked{
+  .changestyleBox.checked, .changestyleBoxSmall.checked, .changestyleBoxIcon.checked {
     background-color: #ccc;
   }
-  .changestyleNameBox{
+  .changestyleNameBox, .changestyleNameBoxSmall, .changestyleNameBoxIcon {
     background-color: rgba(0, 0, 0, 0.75);
   }
 }

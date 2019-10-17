@@ -30,7 +30,6 @@
 }
 .unitTableIcon {
   border: solid;
-  border-color: rgb(0, 192, 48);
   padding: 5px;
   margin: 5px;
   min-width: 30%;
@@ -39,9 +38,7 @@
   flex: 1;
 }
 .unitNameViewIcon {
-  background-color: #00c030;
   border: solid;
-  border-color: rgb(0, 192, 48);
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
@@ -51,7 +48,6 @@
 }
 .unitNameBoxIcon {
   font-size: 0.7em;
-  background-color: rgba(255, 255, 255, 0.75);
   display: table;
   padding: 5px;
   border-radius: 5px;
@@ -96,7 +92,6 @@
 .typeNameBoxIcon {
   flex: 1;
   min-height: 20px;
-  background-color: rgba(255,255,255,0.75);
   font-size: 0.7em;
   border-radius: 5px;
   display: flex;
@@ -104,7 +99,7 @@
   justify-content: center;
 }
 
-.changestyleBoxIcon{
+.changestyleBoxIcon {
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
@@ -120,7 +115,7 @@
 .changestyleBoxIcon.checked{
   background-color: #ccc;
 }
-.changestyleNameBoxIcon{
+.changestyleNameBoxIcon {
   flex: 1;
   background-color: rgba(255, 255, 255, 0.75);
   font-size: 0.7em;

@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import './App.color.css';
 import './App.icon.css';
 import './App.small.css';
 import './idolIcon.css';
+import './App.color.css';
 
 import unitToIdol  from "./unitToIdol.json";
 import idolToUnit  from "./idolToUnit.json";
