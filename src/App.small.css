@@ -1,6 +1,5 @@
 .idolBoxSmall {
   border-radius: 5px;
-  background-color: #fff;
   border: solid;
   border-width: 2px;
   min-width: 100px;
@@ -21,7 +20,6 @@
 .idolNameBoxSmall {
   flex: 1;
   font-size: 0.4em;
-  background-color: rgba(255, 255, 255, 0.75);
   padding: 2px;
   margin: 2px;
   border-radius: 5px;
@@ -35,16 +33,13 @@
 }
 .unitTableSmall {
   border: solid;
-  border-color: rgb(0, 192, 48);
   margin: 7px;
   border-radius: 5px;
   border-width: 2px;
   display: flex;
 }
 .unitNameViewSmall {
-  background-color: #00c030;
   border: solid;
-  border-color: rgb(0, 192, 48);
   border-radius: 5px;
   min-width: 80px; 
   max-width: 80px; 
@@ -56,7 +51,6 @@
 }
 .unitNameBoxSmall {
   font-size: 0.4em;
-  background-color: rgba(255, 255, 255, 0.75);
   display: table;
   padding: 2px;
   border-radius: 5px;
@@ -74,36 +68,12 @@
   justify-content: center;
   text-align: center;
 }
-.filterCheckboxTypeSmall.filterCheckbox-princess {
-  border-color: #ff2383;
-}
-.filterCheckboxTypeSmall.filterCheckbox-princess.checked {
-  background-color: #ff2383;
-}
-.filterCheckboxTypeSmall.filterCheckbox-fairy {
-  border-color: #025efd;
-}
-.filterCheckboxTypeSmall.filterCheckbox-fairy.checked {
-  background-color: #025efd;
-}
-.filterCheckboxTypeSmall.filterCheckbox-angel {
-  border-color: #ffbb00;
-}
-.filterCheckboxTypeSmall.filterCheckbox-angel.checked {
-  background-color: #ffbb00;
-}
-.filterCheckboxTypeSmall.filterCheckbox-selecting {
-  border-color: #88ff88;;
-}
-.filterCheckboxTypeSmall.filterCheckbox-selecting.checked {
-  background-color: #88ff88;
-}
+
 .typeNameBoxSmall {
   flex: 1;
   min-height: 10px;
   width: 50px;
   margin: auto;
-  background-color: rgba(255,255,255,0.75);
   font-size: 0.4em;
   border-radius: 4px;
   display: flex;
@@ -114,7 +84,6 @@
 .changestyleBoxSmall{
   flex: 1;
   border: solid;
-  border-color: #ccc;
   width: 60px;
   padding: 2px;
   margin: 2px;
@@ -125,10 +94,7 @@
   justify-content: center;
   text-align: center;
 }
-.changestyleBoxSmall.checked{
-  background-color: #ccc;
-}
-.changestyleNameBoxSmall{
+.changestyleNameBoxSmall {
   flex: 1;
   background-color: rgba(255, 255, 255, 0.75);
   font-size: 0.4em;

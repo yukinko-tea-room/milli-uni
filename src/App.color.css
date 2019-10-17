@@ -1,0 +1,150 @@
+.header {
+  background-color: rgb(60, 60, 60);
+}
+.headerTitleBox {
+  color: #fff;
+}
+.headerTitleBox:hover {
+  color: rgb(226, 226, 226);
+}
+.headerMenuView {
+  color: #fff;
+}
+.headerMenuBox {
+  
+}
+
+.idolBox, .idolBoxSmall {
+  background-color: #fff;
+}
+.idolNameBox, .idolNameBoxSmall {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.unitTable, .unitTableSmall, .unitTableIcon {
+  border-color: rgb(0, 192, 48);
+}
+.unitNameView, .unitNameViewSmall, .unitNameViewIcon {
+  background-color: #8dcf9e;
+  border-color: rgb(0, 192, 48);
+}
+.unitNameBox, .unitNameBoxSmall, .unitNameBoxIcon {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.unitComplete {
+  background-color: #ff8;
+}
+
+.deleteButton {
+  background-color: #fff;
+}
+
+.filterCheckboxType.filterCheckbox-princess {
+  border-color: #ff2383;
+}
+.filterCheckboxType.filterCheckbox-princess.checked {
+  background-color: #ff2383;
+}
+.filterCheckboxType.filterCheckbox-fairy {
+  border-color: #025efd;
+}
+.filterCheckboxType.filterCheckbox-fairy.checked {
+  background-color: #025efd;
+}
+.filterCheckboxType.filterCheckbox-angel {
+  border-color: #ffbb00;
+}
+.filterCheckboxType.filterCheckbox-angel.checked {
+  background-color: #ffbb00;
+}
+.filterCheckboxType.filterCheckbox-selecting {
+  border-color: #88ff88;;
+}
+.filterCheckboxType.filterCheckbox-selecting.checked {
+  background-color: #88ff88;
+}
+.typeNameBox, .typeNameBoxSmall, .typeNameBoxIcon {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.changestyleBox, .changestyleBoxSmall, .changestyleBoxIcon {
+  border-color: #ccc;
+}
+.changestyleBox.checked, .changestyleBoxSmall.checked, .changestyleBoxIcon.checked {
+  background-color: #ccc;
+}
+.changestyleNameBox, .changestyleNameBoxSmall, .changestyleNameBoxIcon {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+  .header {
+    background-color: #212121;
+  }
+  .idolBox, .idolBoxSmall {
+    background-color: #000;
+  }
+  .idolNameBox, .idolNameBoxSmall {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+  }
+
+  .unitTable, .unitTableSmall, .unitTableIcon {
+    border-color: rgb(0, 105, 33);
+  }
+  .unitNameView, .unitNameViewSmall, .unitNameViewIcon {
+    background-color: #5a8564;
+    border-color: rgb(0, 105, 33);
+  }
+  .unitNameBox, .unitNameBoxSmall, .unitNameBoxIcon {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  .unitComplete {
+    background-color: #ff8;
+  }
+  
+  .deleteButton {
+    background-color: #fff;
+  }
+  
+  .filterCheckboxType.filterCheckbox-princess {
+    border-color: #ff2383;
+  }
+  .filterCheckboxType.filterCheckbox-princess.checked {
+    background-color: #ff2383;
+  }
+  .filterCheckboxType.filterCheckbox-fairy {
+    border-color: #025efd;
+  }
+  .filterCheckboxType.filterCheckbox-fairy.checked {
+    background-color: #025efd;
+  }
+  .filterCheckboxType.filterCheckbox-angel {
+    border-color: #ffbb00;
+  }
+  .filterCheckboxType.filterCheckbox-angel.checked {
+    background-color: #ffbb00;
+  }
+  .filterCheckboxType.filterCheckbox-selecting {
+    border-color: #88ff88;;
+  }
+  .filterCheckboxType.filterCheckbox-selecting.checked {
+    background-color: #88ff88;
+  }
+  .typeNameBox, .typeNameBoxSmall {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .changestyleBox, .changestyleBoxSmall, .changestyleBoxIcon {
+    border-color: #ccc;
+  }
+  .changestyleBox.checked, .changestyleBoxSmall.checked, .changestyleBoxIcon.checked {
+    background-color: #ccc;
+  }
+  .changestyleNameBox, .changestyleNameBoxSmall, .changestyleNameBoxIcon {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+}
