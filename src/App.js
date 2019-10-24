@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './css/App.css';
 import './css/App.icon.css';
 import './css/App.small.css';
@@ -36,36 +36,31 @@ const IdolButton = (props) => {
   );
 }
 
-class IdolsSelect extends React.Component {
-  constructor(props){
-    super(props)
-    this.state={
-      filterType: ["princess", "fairy", "angel"],
-    }
-  }
+const IdolsSelect = (props) =>  {
+  const [filterType, setFilterType] = useState(["princess", "fairy", "angel"])
 
-  setFilter(type){
-    if(this.state.filterType.indexOf(type) !== -1){
-      const filterType = this.state.filterType.filter(v=>v!==type)
-      this.setState({filterType: filterType})
+  const setFilter = (type) => {
+    if(filterType.indexOf(type) !== -1){
+      const ft = filterType.filter(v=>v!==type)
+      setFilterType(ft)
     }else{
-      const filterType = this.state.filterType
-      filterType.push(type)
-      this.setState({filterType: filterType})
+      const ft = filterType
+      ft.push(type)
+      setFilterType(ft)
     }
   }
   
-  filterButtonBuilder(type){
+  const filterButtonBuilder = (type) => {
     return(
       <label>
         <div
-          className={`filterCheckboxType filterCheckbox-${type} ${(this.state.filterType.indexOf(type)!==-1)?"checked":""}`}
+          className={`filterCheckboxType filterCheckbox-${type} ${(filterType.indexOf(type)!==-1)?"checked":""}`}
         >
           <div className="typeNameBox">
             <input
               type="checkbox"
-              checked={(this.state.filterType.indexOf(type)!==-1)?"checked":""}
-              onChange={()=>this.setFilter(type)}
+              checked={(filterType.indexOf(type)!==-1)?"checked":""}
+              onChange={()=>setFilter(type)}
             />
             {type}
           </div>
@@ -74,36 +69,35 @@ class IdolsSelect extends React.Component {
     )
   }
 
-  render() {
-    const buttons = this.props.idols.map((idol, index) => {
-      if(this.state.filterType.indexOf(idolData[idol].type) === -1){
-        if(this.state.filterType.indexOf("selecting") === -1 ||
-           this.props.selectedIdols.indexOf(idol) === -1){
-          return null
-        }
+  const buttons = props.idols.map((idol, index) => {
+    if(filterType.indexOf(idolData[idol].type) === -1){
+      if(filterType.indexOf("selecting") === -1 ||
+         props.selectedIdols.indexOf(idol) === -1){
+        return null
       }
-      return(
-        <IdolButton
-          key={index}
-          selectedIdols={this.props.selectedIdols}
-          idol={idol}
-          classNameSuffix={this.props.classNameSuffix}
-          onClickHandler={(idol)=>this.props.onClickHandler(idol)}
-        />
-      );
-    });
-    return (
-      <div className="idolView">
-        <form>
-          {this.filterButtonBuilder("princess")}
-          {this.filterButtonBuilder("fairy")}
-          {this.filterButtonBuilder("angel")}
-          {this.filterButtonBuilder("selecting")}
-        </form>
-        {buttons}
-      </div>
+    }
+    return(
+      <IdolButton
+        key={index}
+        selectedIdols={props.selectedIdols}
+        idol={idol}
+        classNameSuffix={props.classNameSuffix}
+        onClickHandler={(idol)=>props.onClickHandler(idol)}
+      />
     );
-  }
+  });
+
+  return (
+    <div className="idolView">
+      <form>
+        {filterButtonBuilder("princess")}
+        {filterButtonBuilder("fairy")}
+        {filterButtonBuilder("angel")}
+        {filterButtonBuilder("selecting")}
+      </form>
+      {buttons}
+    </div>
+  );
 }
 
 class UnitItem extends React.Component {
