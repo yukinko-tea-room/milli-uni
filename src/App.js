@@ -100,31 +100,30 @@ const IdolsSelect = (props) =>  {
   );
 }
 
-class UnitItem extends React.Component {
-  render(){
-    const unitMember = unitToIdol[unitName[this.props.unit]]
+const UnitItem = (props) =>  {
+    const unitMember = unitToIdol[unitName[props.unit]]
     unitMember.sort((a,b)=>{
-      return (this.props.selectedIdols.indexOf(b)!==-1)?1:-1
+      return (props.selectedIdols.indexOf(b)!==-1)?1:-1
     })
     const memberButtons = unitMember.map((member, i) => {
       return(
         <IdolButton
           key={i}
-          selectedIdols={this.props.selectedIdols}
+          selectedIdols={props.selectedIdols}
           idol={member}
-          classNameSuffix={this.props.classNameSuffix}
-          onClickHandler={(idol)=>this.props.toggleClickHandler(idol)}
+          classNameSuffix={props.classNameSuffix}
+          onClickHandler={(idol)=>props.toggleClickHandler(idol)}
         />
       )
     });
-    const selectedMember = unitMember.filter(idol=>this.props.selectedIdols.indexOf(idol)!==-1)
+    const selectedMember = unitMember.filter(idol=>props.selectedIdols.indexOf(idol)!==-1)
     const completeClassName = (selectedMember.length === unitMember.length)?"unitComplete":""
 
     return(
-      <div key={this.props.unit} className={`unitTable${this.props.classNameSuffix} ${completeClassName}`}>
-        <div className={`unitNameView${this.props.classNameSuffix}`}>
-          <div className={`unitNameBox${this.props.classNameSuffix}`}>
-            {unitName[this.props.unit]}
+      <div key={props.unit} className={`unitTable${props.classNameSuffix} ${completeClassName}`}>
+        <div className={`unitNameView${props.classNameSuffix}`}>
+          <div className={`unitNameBox${props.classNameSuffix}`}>
+            {unitName[props.unit]}
           </div>
         </div>
         <div className="unitIdolView">
@@ -132,30 +131,24 @@ class UnitItem extends React.Component {
         </div>
       </div>
     )
-  }
 }
 
-class App extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      listIdols: Object.keys(idolToUnit),
-      selectedIdols: [],
-      selectedUnits: [],
-      classNameSuffix: "",
-    }
-  }
+const App = () => {
+  const [listIdols, setListIdols] = useState(Object.keys(idolToUnit))
+  const [selectedIdols, setSelectedIdols] = useState([])
+  const [selectedUnits, setSelectedUnits] = useState([])
+  const [classNameSuffix, setClassNameSuffix] = useState("")
 
-  updateSelectedUnits(idols){
-    const selectedUnits = []
+  const updateSelectedUnits = (idols) => {
+    const sdUnits = []
     for(const idol of idols){
       for(const unit of idolToUnit[idol]){
-        if(selectedUnits.indexOf(unit) === -1){
-          selectedUnits.push(unit)
+        if(sdUnits.indexOf(unit) === -1){
+          sdUnits.push(unit)
         }
       }
     }
-    var unitSortIndex = selectedUnits.map((u,index)=>{
+    var unitSortIndex = sdUnits.map((u,index)=>{
       var match = 0
       var score = 0
       unitToIdol[unitName[u]].map((i)=>{
@@ -177,136 +170,133 @@ class App extends React.Component {
     unitSortIndex.sort((a,b)=>{return (a.score > b.score)?-1:1})
     console.log(unitSortIndex)
     return unitSortIndex.map((e)=>{
-      return selectedUnits[e.index]
+      return sdUnits[e.index]
     })
   }
   
-  toggleIdol(idol) {
-    if ( this.state.selectedIdols.indexOf(idol) === -1 ){
-      const selected = this.state.selectedIdols.slice()
+  const toggleIdol = (idol) => {
+    if ( selectedIdols.indexOf(idol) === -1 ){
+      const selected = selectedIdols.slice()
       selected.push(idol);
-      const units = this.updateSelectedUnits(selected)
-      this.setState({ selectedIdols: selected, selectedUnits: units });
+      const units = updateSelectedUnits(selected)
+      setSelectedIdols(selected)
+      setSelectedUnits(units)
     } else {
-      const selected = this.state.selectedIdols.filter(v=>v!==idol);
-      const units = this.updateSelectedUnits(selected)
-      this.setState({ selectedIdols: selected, selectedUnits: units });
+      const selected = selectedIdols.filter(v=>v!==idol);
+      const units = updateSelectedUnits(selected)
+      setSelectedIdols(selected)
+      setSelectedUnits(units)
     }
   }
 
-  addRandomIdol(){
-    if (this.state.selectedIdols.length === this.state.listIdols.length){
+  const addRandomIdol = () => {
+    if (selectedIdols.length === listIdols.length){
       return null
     }
-    const notSelectedIdols = this.state.listIdols.filter(v=>this.state.selectedIdols.indexOf(v)===-1)
-    this.toggleIdol(notSelectedIdols[Math.floor(Math.random()*notSelectedIdols.length)])
+    const notSelectedIdols = listIdols.filter(v=>selectedIdols.indexOf(v)===-1)
+    toggleIdol(notSelectedIdols[Math.floor(Math.random()*notSelectedIdols.length)])
   }
 
-  setClassNameSuffix(suffix){
-    this.setState({classNameSuffix: suffix})
+  const units = [];
+  for(const i of selectedUnits){
+    units.push(
+      <UnitItem
+        key={i}
+        unit={i}
+        selectedIdols={selectedIdols}
+        classNameSuffix={classNameSuffix}
+        toggleClickHandler={(idol)=>toggleIdol(idol)}
+      />
+    )
   }
 
-  render() {
-    const units = [];
-    for(const i of this.state.selectedUnits){
-      units.push(
-        <UnitItem
-          key={i}
-          unit={i}
-          selectedIdols={this.state.selectedIdols}
-          classNameSuffix={this.state.classNameSuffix}
-          toggleClickHandler={(idol)=>this.toggleIdol(idol)}
-        />
-      )
-    }
-
-    return (
-      <div>
-        <div className="header">
-          <div className="container">
-            <div className="headerView">
-              <div className="headerTitleView">
-                <h3 className="headerTitleBox">
-                MILLIONLIVE!-UNIT-SEARCH
-                </h3>
-              </div>
-            <div className="headerMenuView">
+  return (
+    <div>
+      <div className="header">
+        <div className="container">
+          <div className="headerView">
+            <div className="headerTitleView">
+              <h3 className="headerTitleBox">
+              MILLIONLIVE!-UNIT-SEARCH
+              </h3>
             </div>
-            </div>
+          <div className="headerMenuView">
           </div>
-        </div>
-        <div className="main">
-          <div className="container">
-            <div className="refineView">
-              <form>
-                <label>
-                  <div
-                    className="changestyleBox"
-                    onClick={()=>{this.setClassNameSuffix("")}}
-                  >
-                   <div
-                     className="changestyleNameBox"
-                    >
-                      <input type="radio" name="styles" />
-                        Normal
-                   </div>
-                  </div>
-                </label>
-               <label>
-                  <div
-                    className="changestyleBox"
-                    onClick={()=>{this.setClassNameSuffix("Small")}}
-                  >
-                    <div
-                      className="changestyleNameBox"
-                    >
-                      <input type="radio" name="styles" />
-                      Small
-                   </div>
-                  </div>
-                </label>
-                <label>
-                  <div
-                    className="changestyleBox"
-                    onClick={()=>{this.setClassNameSuffix("Icon")}}
-                  >
-                    <div
-                      className="changestyleNameBox"
-                    >
-                      <input type="radio" name="styles" />
-                      Icon
-                    </div>
-                  </div>
-                </label>
-              </form>
-            </div>
-            <button onClick={()=>this.addRandomIdol()} >ランダムに選択</button>
-            <IdolsSelect
-              idols={this.state.listIdols}
-              selectedIdols={this.state.selectedIdols}
-              classNameSuffix={this.state.classNameSuffix}
-              onClickHandler={(idol)=>this.toggleIdol(idol)}
-            />
-            <div className="unitView">
-              <div className={`unitList${this.state.classNameSuffix}`}>
-                {units}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="footer">
-          <div className="container">
-            <hr />
-            <center>
-              <p>Copyright (c) 2019 雪んこ茶房</p>
-              <p><a href="https://github.com/yukinko-tea-room/milli-uni" target="_blank" rel="noopener noreferrer">GtiHub</a></p>
-              <p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
-            </center>
           </div>
         </div>
       </div>
-    );
-  }
+      <div className="main">
+        <div className="container">
+          <div className="refineView">
+            <form>
+              <label>
+                <div
+                  className="changestyleBox"
+                  onClick={()=>{setClassNameSuffix("")}}
+                >
+                 <div
+                   className="changestyleNameBox"
+                  >
+                    <input type="radio" name="styles" />
+                      Normal
+                 </div>
+                </div>
+              </label>
+             <label>
+                <div
+                  className="changestyleBox"
+                  onClick={()=>{setClassNameSuffix("Small")}}
+                >
+                  <div
+                    className="changestyleNameBox"
+                  >
+                    <input type="radio" name="styles" />
+                    Small
+                 </div>
+                </div>
+              </label>
+              <label>
+                <div
+                  className="changestyleBox"
+                  onClick={()=>{setClassNameSuffix("Icon")}}
+                >
+                  <div
+                    className="changestyleNameBox"
+                  >
+                    <input type="radio" name="styles" />
+                    Icon
+                  </div>
+                </div>
+              </label>
+            </form>
+          </div>
+          <button onClick={()=>addRandomIdol()} >ランダムに選択</button>
+          <IdolsSelect
+            idols={listIdols}
+            selectedIdols={selectedIdols}
+            classNameSuffix={classNameSuffix}
+            onClickHandler={(idol)=>toggleIdol(idol)}
+          />
+          <div className="unitView">
+            <div className={`unitList${classNameSuffix}`}>
+              {units}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="footer">
+        <div className="container">
+          <hr />
+          <center>
+            <p>Copyright (c) 2019 雪んこ茶房</p>
+            <p><a href="https://github.com/yukinko-tea-room/milli-uni" target="_blank" rel="noopener noreferrer">GtiHub</a></p>
+            <p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
+          </center>
+        </div>
+      </div>
+    </div>
+  );
+  
 }
 
 export default App;
