@@ -8,7 +8,7 @@ import './css/idolIcon.css';
 import unitToIdol  from "./data/unitToIdol.json";
 import idolToUnit  from "./data/idolToUnit.json";
 import unitName    from "./data/unitName.json"
-import idolData from "./data/idolData.json";
+import idolData from "./masterdata/idolData.json";
 
 class IdolButton extends React.Component {
   render() {
