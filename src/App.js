@@ -10,32 +10,30 @@ import idolToUnit  from "./data/idolToUnit.json";
 import unitName    from "./data/unitName.json"
 import idolData from "./masterdata/idolData.json";
 
-class IdolButton extends React.Component {
-  render() {
-    var style = {
-      borderColor: idolData[this.props.idol].color
-    }
-    if(this.props.selectedIdols.indexOf(this.props.idol) !== -1){
-      style["backgroundColor"] = idolData[this.props.idol].color
-    }
+const IdolButton = (props) => {
+  var style = {
+      borderColor: idolData[props.idol].color
+  }
+  if(props.selectedIdols.indexOf(props.idol) !== -1){
+    style["backgroundColor"] = idolData[props.idol].color
+  }
 
-    return (
-      <div
-        className={`idolBox${this.props.classNameSuffix}`}
-        id={this.props.idol}
-        style={style} onClick={()=>{
-          this.props.onClickHandler(this.props.idol);
-        }}
-      >
-        <div className="boxContainer">
-          <div className={`idolImage${this.props.classNameSuffix} idolIcon-${this.props.idol}`}></div>
-          <div className={`idolNameBox${this.props.classNameSuffix}`}>
-            {idolData[this.props.idol].screenName}
-          </div>
+  return (
+    <div
+      className={`idolBox${props.classNameSuffix}`}
+      id={props.idol}
+      style={style} onClick={()=>{
+        props.onClickHandler(props.idol);
+      }}
+    >
+      <div className="boxContainer">
+        <div className={`idolImage${props.classNameSuffix} idolIcon-${props.idol}`}></div>
+        <div className={`idolNameBox${props.classNameSuffix}`}>
+          {idolData[props.idol].screenName}
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 class IdolsSelect extends React.Component {
