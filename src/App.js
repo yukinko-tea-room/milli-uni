@@ -1,14 +1,14 @@
 import React from 'react';
-import './App.css';
-import './App.icon.css';
-import './App.small.css';
-import './idolIcon.css';
-import './App.color.css';
+import './css/App.css';
+import './css/App.icon.css';
+import './css/App.small.css';
+import './css/App.color.css';
+import './css/idolIcon.css';
 
-import unitToIdol  from "./unitToIdol.json";
-import idolToUnit  from "./idolToUnit.json";
-import unitName    from "./unitName.json"
-import idolData from "./idolData.json";
+import unitToIdol  from "./data/unitToIdol.json";
+import idolToUnit  from "./data/idolToUnit.json";
+import unitName    from "./data/unitName.json"
+import idolData from "./masterdata/idolData.json";
 
 class IdolButton extends React.Component {
   render() {
