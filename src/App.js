@@ -44,7 +44,7 @@ const IdolsSelect = (props) =>  {
       const ft = filterType.filter(v=>v!==type)
       setFilterType(ft)
     }else{
-      const ft = filterType
+      const ft = filterType.slice()
       ft.push(type)
       setFilterType(ft)
     }
