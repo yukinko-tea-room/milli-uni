@@ -288,8 +288,8 @@ const App = () => {
         <div className="container">
           <hr />
           <center>
-            <p>Copyright (c) 2019 雪んこ茶房</p>
-            <p><a href="https://github.com/yukinko-tea-room/milli-uni" target="_blank" rel="noopener noreferrer">GtiHub</a></p>
+            <p>Copyright (c) 2019 雪んこ茶房.</p>
+            <p>Code released under the <a href="https://github.com/yukinko-tea-room/milli-uni/blob/master/LICENSE" target="_blank">MIT License.</a></p>
             <p>The copyright to THE IDOLM@STER contents belongs to BANDAI NAMCO Entertainment Inc.</p>
           </center>
         </div>
