@@ -1,5 +1,6 @@
 .header {
   background-color: rgb(60, 60, 60);
+  box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.2);
 }
 .headerTitleBox {
   color: #fff;
@@ -9,9 +10,6 @@
 }
 .headerMenuView {
   color: #fff;
-}
-.headerMenuBox {
-  
 }
 
 .idolBox, .idolBoxSmall {
@@ -78,17 +76,18 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #000;
+    background-color: rgb(30, 40, 55);
     color: #fff;
   }
   .header {
-    background-color: #212121;
+    background-color: rgb(60, 60, 60);
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.2);
   }
   .idolBox, .idolBoxSmall {
-    background-color: #000;
+    background-color: rgb(30, 40, 55);
   }
   .idolNameBox, .idolNameBoxSmall {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(30, 40, 55, 0.75);
     color: #fff;
   }
 
@@ -100,10 +99,10 @@
     border-color: rgb(0, 105, 33);
   }
   .unitNameBox, .unitNameBoxSmall, .unitNameBoxIcon {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgb(30, 40, 55, 0.75);
   }
   .unitComplete {
-    background-color: #ff8;
+    background-color: rgb(0, 66, 9);
   }
   
   .deleteButton {
@@ -135,7 +134,7 @@
     background-color: #88ff88;
   }
   .typeNameBox, .typeNameBoxSmall {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(30, 40, 55, 0.75);
   }
   
   .changestyleBox, .changestyleBoxSmall, .changestyleBoxIcon {
@@ -145,6 +144,6 @@
     background-color: #ccc;
   }
   .changestyleNameBox, .changestyleNameBoxSmall, .changestyleNameBoxIcon {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(30, 40, 55, 0.75);
   }
 }
