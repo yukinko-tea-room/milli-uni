@@ -57,7 +57,6 @@ body {
   min-width: 150px;
   max-width: 200px;
   margin: 5px;
-  flex: 1;
   align-items: center;
   justify-content: center;
   cursor : pointer;
@@ -90,7 +89,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 0 10px;
-  margin: 0;
+  margin: auto 0;
 }
 .unitList {
   padding: 5px;
