@@ -1,5 +1,6 @@
 .header {
-  background-color: rgba(60, 60, 60, 1);
+  background-color: rgb(60, 60, 60);
+  box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.2);
 }
 .headerTitleBox {
   color: rgba(255, 255, 255, 1);
@@ -8,7 +9,7 @@
   color: rgba(226, 226, 226, 1);
 }
 .headerMenuView {
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
 }
 
 .idolBox, .idolBoxSmall {
@@ -75,18 +76,19 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: rgba(0, 0, 0, 1);
-    color: rgba(255, 255, 255, 1);
+    background-color: rgb(30, 40, 55);
+    color: #fff;
   }
   .header {
-    background-color: rgba(33, 33, 33, 1);
+    background-color: rgb(60, 60, 60);
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.2);
   }
   .idolBox, .idolBoxSmall {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgb(30, 40, 55);
   }
   .idolNameBox, .idolNameBoxSmall {
-    background-color: rgba(0, 0, 0, 0.75);
-    color: rgba(255, 255, 255, 1);
+    background-color: rgba(30, 40, 55, 0.75);
+    color: #fff;
   }
 
   .unitTable, .unitTableSmall, .unitTableIcon {
@@ -97,7 +99,7 @@
     border-color: rgba(0, 105, 33, 1);
   }
   .unitNameBox, .unitNameBoxSmall, .unitNameBoxIcon {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgb(30, 40, 55, 0.75);
   }
   .unitComplete {
     background-color: rgba(255, 255, 136, 1);
@@ -132,7 +134,7 @@
     background-color: rgba(136, 255, 136, 1);
   }
   .typeNameBox, .typeNameBoxSmall {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(30, 40, 55, 0.75);
   }
   
   .changestyleBox, .changestyleBoxSmall, .changestyleBoxIcon {
@@ -142,6 +144,6 @@
     background-color: rgba(204, 204, 204, 1);
   }
   .changestyleNameBox, .changestyleNameBoxSmall, .changestyleNameBoxIcon {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(30, 40, 55, 0.75);
   }
 }
