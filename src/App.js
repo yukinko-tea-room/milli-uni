@@ -156,7 +156,7 @@ const App = () => {
             onClickHandler={(idol) => toggleIdol(idol)}
           />
           <div className="unit-view">
-            <div className={`unitList${classNameSuffix}`}>
+            <div className={`unit-list${classNameSuffix}`}>
               {units}
             </div>
           </div>
