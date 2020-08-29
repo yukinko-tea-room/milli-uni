@@ -134,7 +134,7 @@ const UnitItem = (props) =>  {
 }
 
 const App = () => {
-  const [listIdols, setListIdols] = useState(Object.keys(idolToUnit))
+  const [listIdols] = useState(Object.keys(idolToUnit))
   const [selectedIdols, setSelectedIdols] = useState([])
   const [selectedUnits, setSelectedUnits] = useState([])
   const [classNameSuffix, setClassNameSuffix] = useState("")
