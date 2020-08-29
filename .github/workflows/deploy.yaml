@@ -17,14 +17,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: create branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ID: ${{ github.run_id }}
+      - name: git config
         run: |
           git config --global user.name actions
           git config --global user.email actions@github.com
-          git checkout -b actions/release/$ID
       - name: build
         run: |
           npm install
@@ -33,10 +29,12 @@ jobs:
       - name: push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ID: ${{ github.run_id }}
         run: |
+          TAG=`date +%Y%m%d`-release
           rm -rf docs
           mv build docs
           git add -f docs
           git commit -m 'deploy action'
-          git push origin actions/release/$ID
+          git tag -a $TAG
+          git push origin master
+          git push origin $TAG
