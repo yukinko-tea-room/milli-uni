@@ -30,11 +30,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG=`date +%Y%m%d`-release
+          TAG=`date +%Y%m%d%H%M%S`-release
           rm -rf docs
           mv build docs
           git add -f docs
           git commit -m 'deploy action'
-          git tag -a $TAG
+          git tag -a $TAG -m 'deploy action'
           git push origin master
           git push origin $TAG
