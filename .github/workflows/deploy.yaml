@@ -21,7 +21,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git checkout -b actions/release/${GITHUB_RUN_ID}
+          git checkout -b actions/release/$ITHUB_RUN_ID
       - name: build
         run: |
           npm install
@@ -31,6 +31,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git add docs
+          git add -f docs
           git commit -m 'deploy action'
-          git push origin actions/release/${GITHUB_RUN_ID}
+          git push origin actions/release/$GITHUB_RUN_ID
