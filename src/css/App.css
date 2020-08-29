@@ -11,13 +11,13 @@ body {
   border: none;
   z-index: 1;
 }
-.headerView {
+.header-view {
   display: flex;
 }
-.headerTitleView{
+.header-title-view{
   margin: auto;
 }
-.headerTitleBox {
+.header-title-box {
   top: 0;
   left: 0;
   height: auto;
@@ -25,7 +25,7 @@ body {
   display: table;
   cursor : pointer;
 }
-.headerMenuView {
+.header-menu-view {
   flex: 1;
   display: flex;
   align-items: center;
@@ -43,11 +43,11 @@ body {
   padding: 0 40px 0 40px;
 }
 
-.idolView {
+.idol-view {
   display: flex;
   flex-wrap: wrap;
 }
-.idolBox {
+.idol-box {
   border-radius: 5px;
   border: solid;
   border-width: 5px;
@@ -59,14 +59,14 @@ body {
   justify-content: center;
   cursor : pointer;
 }
-.idolImage {
+.idol-image {
   margin: 5px;
   border-radius: 5px;
   height: 35px;
   width: 35px;
   background-size: contain;
 }
-.idolNameBox {
+.idol-name-box {
   flex: 1;
   font-size: 0.7em;
   padding: 5px;
@@ -77,30 +77,30 @@ body {
   justify-content: center;
 }
 
-.unitView {
+.unit-view {
   margin: auto;
 }
-.unitBox {
+.unit-box {
   position: relative;
 }
-.unitIdolView {
+.unit-idol-view {
   display: flex;
   flex-wrap: wrap;
   padding: 0 10px;
   margin: 0;
 }
-.unitList {
+.unit-list {
   padding: 5px;
   margin: auto;
 }
-.unitTable {
+.unit-table {
   border: solid;
   padding: 5px;
   margin: 5px 0;
   border-radius: 5px;
   display: flex;
 }
-.unitNameView {
+.unit-name-view {
   border: solid;
   border-radius: 5px;
   min-width: 120px; 
@@ -111,14 +111,14 @@ body {
   align-items: center;
   justify-content: center;
 }
-.unitNameBox {
+.unit-name-box {
   font-size: 0.7em;
   display: table;
   padding: 5px;
   border-radius: 5px;
 }
 
-.deleteButton {
+.delete-button {
   font-family: Helvetica Neue;
   font-size: 1em;
   position: absolute;
@@ -140,7 +140,7 @@ form {
   flex-wrap: wrap;
   min-width: 100%;
 }
-.filterCheckboxType {
+.filter-checkbox-type {
   flex: 1;
   border: solid;
   width: 90px;
@@ -155,7 +155,7 @@ form {
 input[type="checkbox"], input[type="radio"] {
   display: none;
 }
-.typeNameBox {
+.type-name-box {
   flex: 1;
   padding: 2px;
   font-size: 0.7em;
@@ -165,7 +165,7 @@ input[type="checkbox"], input[type="radio"] {
   justify-content: center;
 }
 
-.changestyleBox{
+.changestyle-box{
   border: solid;
   padding: 5px;
   margin: 5px;
@@ -176,7 +176,7 @@ input[type="checkbox"], input[type="radio"] {
   justify-content: center;
   text-align: center;
 }
-.changestyleNameBox{
+.changestyle-name-box{
   flex: 1;
   font-size: 0.7em;
   border-radius: 5px;
@@ -186,7 +186,7 @@ input[type="checkbox"], input[type="radio"] {
   justify-content: center;
 }
 
-.boxContainer {
+.box-container {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -202,19 +202,19 @@ input[type="checkbox"], input[type="radio"] {
   .container {
     padding: 0 5px 0 5px;
   }
-  .idolView {
+  .idol-view {
     top: 0;
     left: 0;
   }
-  .idolBox {
+  .idol-box {
     justify-content: left;
     min-width: 150px;
     max-width: 320px;
   }
-  .unitName {
+  .unit-name {
     justify-content: left;
   }
-  .boxContainer {
+  .box-container {
     text-align: left;
   }
 }

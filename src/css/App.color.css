@@ -2,75 +2,75 @@
   background-color: rgb(60, 60, 60);
   box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.2);
 }
-.headerTitleBox {
+.header-title-box {
   color: rgba(255, 255, 255, 1);
 }
-.headerTitleBox:hover {
+.header-title-box:hover {
   color: rgba(226, 226, 226, 1);
 }
-.headerMenuView {
+.header-menu-view {
   color: #fff;
 }
 
-.idolBox, .idolBoxSmall {
+.idol-box, .idol-box-small {
   background-color: rgba(255, 255, 255, 1);
 }
-.idolNameBox, .idolNameBoxSmall {
+.idol-name-box, .idol-name-box-small {
   background-color: rgba(255, 255, 255, 0.75);
 }
-.unitTable, .unitTableSmall, .unitTableIcon {
+.unit-table, .unit-table-small, .unit-table-icon {
   border-color: rgba(0, 192, 48, 1);
 }
-.unitNameView, .unitNameViewSmall, .unitNameViewIcon {
+.unit-name-view, .unit-name-view-small, .unit-name-view-icon {
   background-color: rgba(141, 207, 158, 1);
   border-color: rgba(0, 192, 48, 1);
 }
-.unitNameBox, .unitNameBoxSmall, .unitNameBoxIcon {
+.unit-name-box, .unit-name-box-small, .unit-name-box-icon {
   background-color: rgba(255, 255, 255, 0.75);
 }
-.unitComplete {
+.unit-complete {
   background-color: rgba(255, 255, 136, 1);
 }
 
-.deleteButton {
+.delete-button {
   background-color: rgba(255, 255, 255, 1);
 }
 
-.filterCheckboxType.filterCheckbox-princess {
+.filter-checkbox-type.filter-checkbox-princess {
   border-color: rgba(255, 35, 131, 1);
 }
-.filterCheckboxType.filterCheckbox-princess.checked {
+.filter-checkbox-type.filter-checkbox-princess.checked {
   background-color: rgba(255, 35, 131, 1);
 }
-.filterCheckboxType.filterCheckbox-fairy {
+.filter-checkbox-type.filter-checkbox-fairy {
   border-color: rgba(2, 94, 253, 1);
 }
-.filterCheckboxType.filterCheckbox-fairy.checked {
+.filter-checkbox-type.filter-checkbox-fairy.checked {
   background-color: rgba(2, 94, 253, 1);
 }
-.filterCheckboxType.filterCheckbox-angel {
+.filter-checkbox-type.filter-checkbox-angel {
   border-color: rgba(255, 187, 0, 1);
 }
-.filterCheckboxType.filterCheckbox-angel.checked {
+.filter-checkbox-type.filter-checkbox-angel.checked {
   background-color: rgba(255, 187, 0, 1);
 }
-.filterCheckboxType.filterCheckbox-selecting {
+.filter-checkbox-type.filter-checkbox-selecting {
   border-color: rgba(136, 255, 136, 1);;
 }
-.filterCheckboxType.filterCheckbox-selecting.checked {
+.filter-checkbox-type.filter-checkbox-selecting.checked {
   background-color: rgba(136, 255, 136, 1);
 }
-.typeNameBox, .typeNameBoxSmall, .typeNameBoxIcon {
+.type-name-box, .type-name-box-small, .type-name-box-icon {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-.changestyleBox, .changestyleBoxSmall, .changestyleBoxIcon {
+.changestyle-box, .changestyle-box-small, .changestyle-box-icon {
   border-color: rgba(204, 204, 204, 1);
 }
-.changestyleBox.checked, .changestyleBoxSmall.checked, .changestyleBoxIcon.checked {
+.changestyle-box.checked, .changestyle-box-small.checked, .changestyle-box-icon.checked {
   background-color: rgba(204, 204, 204, 1);
 }
-.changestyleNameBox, .changestyleNameBoxSmall, .changestyleNameBoxIcon {
+.changestyle-name-box, .changestyle-name-box-small, .changestyle-name-box-icon {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
@@ -83,67 +83,67 @@
     background-color: rgb(60, 60, 60);
     box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.2);
   }
-  .idolBox, .idolBoxSmall {
+  .idol-box, .idol-box-small {
     background-color: rgb(30, 40, 55);
   }
-  .idolNameBox, .idolNameBoxSmall {
+  .idol-name-box, .idol-name-box-small {
     background-color: rgba(30, 40, 55, 0.75);
     color: #fff;
   }
 
-  .unitTable, .unitTableSmall, .unitTableIcon {
+  .unit-table, .unit-table-small, .unit-table-icon {
     border-color: rgba(0, 105, 33, 1);
   }
-  .unitNameView, .unitNameViewSmall, .unitNameViewIcon {
+  .unit-name-view, .unit-name-view-small, .unit-name-view-icon {
     background-color: rgba(141, 207, 158, 1);
     border-color: rgba(0, 105, 33, 1);
   }
-  .unitNameBox, .unitNameBoxSmall, .unitNameBoxIcon {
+  .unit-name-box, .unit-name-box-small, .unit-name-box-icon {
     background-color: rgb(30, 40, 55, 0.75);
   }
-  .unitComplete {
+  .unit-complete {
     background-color: rgba(255, 255, 136, 1);
   }
   
-  .deleteButton {
+  .delete-button {
     background-color: rgba(255, 255, 255, 1);
   }
   
-  .filterCheckboxType.filterCheckbox-princess {
+  .filter-checkbox-type.filter-checkbox-princess {
     border-color: rgba(255, 35, 131, 1);
   }
-  .filterCheckboxType.filterCheckbox-princess.checked {
+  .filter-checkbox-type.filter-checkbox-princess.checked {
     background-color: rgba(255, 35, 131, 1);
   }
-  .filterCheckboxType.filterCheckbox-fairy {
+  .filter-checkbox-type.filter-checkbox-fairy {
     border-color: rgba(2, 94, 253, 1);
   }
-  .filterCheckboxType.filterCheckbox-fairy.checked {
+  .filter-checkbox-type.filter-checkbox-fairy.checked {
     background-color: rgba(2, 94, 253, 1);
   }
-  .filterCheckboxType.filterCheckbox-angel {
+  .filter-checkbox-type.filter-checkbox-angel {
     border-color: rgba(255, 187, 0, 1);
   }
-  .filterCheckboxType.filterCheckbox-angel.checked {
+  .filter-checkbox-type.filter-checkbox-angel.checked {
     background-color: rgba(255, 187, 0, 1);
   }
-  .filterCheckboxType.filterCheckbox-selecting {
+  .filter-checkbox-type.filter-checkbox-selecting {
     border-color: rgba(136, 255, 136, 1);
   }
-  .filterCheckboxType.filterCheckbox-selecting.checked {
+  .filter-checkbox-type.filter-checkbox-selecting.checked {
     background-color: rgba(136, 255, 136, 1);
   }
-  .typeNameBox, .typeNameBoxSmall {
+  .type-name-box, .type-name-box-small {
     background-color: rgba(30, 40, 55, 0.75);
   }
   
-  .changestyleBox, .changestyleBoxSmall, .changestyleBoxIcon {
+  .changestyle-box, .changestyle-box-small, .changestyle-box-icon {
     border-color: rgba(204, 204, 204, 1);
   }
-  .changestyleBox.checked, .changestyleBoxSmall.checked, .changestyleBoxIcon.checked {
+  .changestyle-box.checked, .changestyle-box-small.checked, .changestyle-box-icon.checked {
     background-color: rgba(204, 204, 204, 1);
   }
-  .changestyleNameBox, .changestyleNameBoxSmall, .changestyleNameBoxIcon {
+  .changestyle-name-box, .changestyle-name-box-small, .changestyle-name-box-icon {
     background-color: rgba(30, 40, 55, 0.75);
   }
 }
