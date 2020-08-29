@@ -35,4 +35,5 @@ jobs:
         run: |
           git add -f docs
           git commit -m 'deploy action'
+          git config --global user.name actions
           git push origin actions/release/$ID
