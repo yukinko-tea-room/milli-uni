@@ -92,17 +92,17 @@
   }
 
   .unit-table, .unit-table-small, .unit-table-icon {
-    border-color: rgba(0, 105, 33, 1);
+    border-color: rgba(70, 95, 115, 1);
   }
   .unit-name-view, .unit-name-view-small, .unit-name-view-icon {
-    background-color: rgba(141, 207, 158, 1);
-    border-color: rgba(0, 105, 33, 1);
+    background-color: rgba(150, 150, 150, 1);
+    border-color: rgba(70, 95, 115, 1);
   }
   .unit-name-box, .unit-name-box-small, .unit-name-box-icon {
     background-color: rgb(30, 40, 55, 0.75);
   }
   .unit-complete {
-    background-color: rgba(255, 255, 136, 1);
+    background-color: rgba(65, 80, 110, 1);
   }
   
   .delete-button {
