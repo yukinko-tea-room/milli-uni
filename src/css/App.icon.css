@@ -1,4 +1,4 @@
-.idolBoxIcon {
+.idol-box-icon {
   border-radius: 5px;
   border: solid;
   border-width: 2px;
@@ -13,22 +13,22 @@
   justify-content: center;
   cursor: pointer;
 }
-.idolImageIcon {
+.idol-image-icon {
   border-radius: 5px;
   background-size: contain;
   height: 35px;
   width: 35px;
 }
-.idolNameBoxIcon {
+.idol-name-box-icon {
   display: none;
 }
-.unitListIcon {
+.unit-list-icon {
   padding: 5px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
 }
-.unitTableIcon {
+.unit-table-icon {
   border: solid;
   padding: 5px;
   margin: 5px;
@@ -37,7 +37,7 @@
   border-radius: 5px;
   flex: 1;
 }
-.unitNameViewIcon {
+.unit-name-view-icon {
   border: solid;
   border-radius: 5px;
   margin: 5px;
@@ -46,14 +46,14 @@
   align-items: center;
   justify-content: center;
 }
-.unitNameBoxIcon {
+.unit-name-box-icon {
   font-size: 0.7em;
   display: table;
   padding: 5px;
   border-radius: 5px;
 }
 
-.filterCheckboxTypeIcon {
+.filter-checkbox-type-icon {
   flex: 1;
   border: solid;
   width: 90px;
@@ -65,31 +65,31 @@
   justify-content: center;
   text-align: center;
 }
-.filterCheckboxTypeIcon.filterCheckbox-princess {
+.filter-checkbox-type-icon.filterCheckbox-princess {
   border-color: #ff2383;
 }
-.filterCheckboxTypeIcon.filterCheckbox-princess.checked {
+.filter-checkbox-type-icon.filterCheckbox-princess.checked {
   background-color: #ff2383;
 }
-.filterCheckboxTypeIcon.filterCheckbox-fairy {
+.filter-checkbox-type-icon.filterCheckbox-fairy {
   border-color: #025efd;
 }
-.filterCheckboxTypeIcon.filterCheckbox-fairy.checked {
+.filter-checkbox-type-icon.filterCheckbox-fairy.checked {
   background-color: #025efd;
 }
-.filterCheckboxTypeIcon.filterCheckbox-angel {
+.filter-checkbox-type-icon.filterCheckbox-angel {
   border-color: #ffbb00;
 }
-.filterCheckboxTypeIcon.filterCheckbox-angel.checked {
+.filter-checkbox-type-icon.filterCheckbox-angel.checked {
   background-color: #ffbb00;
 }
-.filterCheckboxTypeIcon.filterCheckbox-selecting {
+.filter-checkbox-type-icon.filterCheckbox-selecting {
   border-color: #88ff88;;
 }
-.filterCheckboxTypeIcon.filterCheckbox-selecting.checked {
+.filter-checkbox-type-icon.filterCheckbox-selecting.checked {
   background-color: #88ff88;
 }
-.typeNameBoxIcon {
+.type-name-box-icon {
   flex: 1;
   min-height: 20px;
   font-size: 0.7em;
@@ -99,7 +99,7 @@
   justify-content: center;
 }
 
-.changestyleBoxIcon {
+.changestyle-box-icon {
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
@@ -112,10 +112,10 @@
   justify-content: center;
   text-align: center;
 }
-.changestyleBoxIcon.checked{
+.changestyle-box-icon.checked{
   background-color: #ccc;
 }
-.changestyleNameBoxIcon {
+.changestyle-name-box-icon {
   flex: 1;
   background-color: rgba(255, 255, 255, 0.75);
   font-size: 0.7em;
