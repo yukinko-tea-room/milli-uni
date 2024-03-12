@@ -24,5 +24,5 @@ Object.keys(Data as UnitToIdols).forEach(unitName => {
   });
 })
 
-// Deno.writeFile("idolToUnit.json", JSON.stringify(result));
-console.log(result)
+Deno.writeTextFile("idolToUnit.json", JSON.stringify(result));
+// console.log(result)
