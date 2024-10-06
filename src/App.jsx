@@ -5,6 +5,7 @@ import './App.small.css';
 import './idolIcon.css';
 import './App.color.css';
 
+import idolData    from "./idolData.json"
 import unitToIdol  from "./unitToIdol.json";
 import idolToUnit  from "./idolToUnit.json";
 import unitName    from "./unitName.json"
@@ -16,7 +17,7 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      listIdols: Object.keys(idolToUnit),
+      listIdols: Object.keys(idolData),
       selectedIdols: [],
       selectedUnits: [],
       classNameSuffix: "",
