@@ -5,10 +5,10 @@ import './App.small.css';
 import './idolIcon.css';
 import './App.color.css';
 
-import idolData    from "./idolData.json"
-import unitToIdol  from "./unitToIdol.json";
-import idolToUnit  from "./idolToUnit.json";
-import unitName    from "./unitName.json"
+import idolData    from "./data/idolData.json"
+import unitToIdol  from "./data/unitToIdol.json";
+import idolToUnit  from "./data/idolToUnit.json";
+import unitName    from "./data/unitName.json"
 
 import IdolsSelect from './components/IdolsSelect';
 import UnitItem from './components/UnitItem';

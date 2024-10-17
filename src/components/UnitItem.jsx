@@ -1,6 +1,6 @@
 import React from "react"
-import unitToIdol from "../unitToIdol.json";
-import unitName from "../unitName.json"
+import unitToIdol from "../data/unitToIdol.json";
+import unitName from "../data/unitName.json"
 import IdolButton from "./IdolButton";
 
 class UnitItem extends React.Component {

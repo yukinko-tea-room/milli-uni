@@ -1,5 +1,5 @@
 import React from "react"
-import idolData from "../idolData.json";
+import idolData from "../data/idolData.json";
 
 class IdolButton extends React.Component {
   render() {
