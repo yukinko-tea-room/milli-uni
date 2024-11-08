@@ -24,7 +24,6 @@ jobs:
       - name: build
         run: |
           npm install
-          npm run build-data
           npm run build
       - name: push
         env:
