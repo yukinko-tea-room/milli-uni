@@ -32,6 +32,7 @@ function App() {
       }
     }
 
+    // TODO: sortとかできれいにする
     var unitSortIndex = selectedUnits.map((u, index) => {
       var match = 0
       var score = 0

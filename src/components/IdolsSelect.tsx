@@ -41,6 +41,7 @@ function IdolsSelect(props: Props) {
     )
   }
 
+  // TODO: filterとかできれいにする
   const buttons = props.idols.map((idol, index) => {
     if(filterTypes.indexOf(idolData[idol].type) === -1){
       if(filterTypes.indexOf("selecting") === -1 ||
