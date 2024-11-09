@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './App.css';
-import './App.icon.css';
-import './App.small.css';
-import './idolIcon.css';
-import './App.color.css';
+import './styles/App.css';
+import './styles/App.icon.css';
+import './styles/App.small.css';
+import './styles/idolIcon.css';
+import './styles/App.color.css';
 
 import { idolData, unitToIdol, idolToUnit, unitNormalize } from './data'
 
