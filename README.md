@@ -2,7 +2,10 @@
 
 ## このリポジトリについて
 
-このリポジトリは[yukinko-tea-room/milli-uni](https://github.com/yukinko-tea-room/milli-uni)のフォークで、アイドルマスターミリオンライブのユニット一覧を検索できるようにします。
+> [!NOTE]
+> このリポジトリは[yukinko-tea-room/milli-uni](https://github.com/yukinko-tea-room/milli-uni)のフォークです。
+
+アイドルマスターミリオンライブのユニット一覧を検索できるWebアプリです。
 
 ## コマンド
 
@@ -17,4 +20,4 @@ Netlifyを使ってホストしています: https://tiny-starlight-66681b.netli
 
 ## ドキュメント
 
-~~勝手に~~引き継いで開発しているので、中身を解明しながら開発しています。わかった内容は`docs/`ディレクトリ内に記載しています。
+~~勝手に~~ 引き継いで開発しているので、中身を解明しながら開発しています。わかった内容は`docs/`ディレクトリ内に記載しています。
