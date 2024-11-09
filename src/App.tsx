@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './styles/App.css';
 import './styles/App.icon.css';
 import './styles/App.small.css';
@@ -18,36 +18,47 @@ type ClassNameSuffix = 'Small' | 'Icon' | ''
 function App() {
   const listIdols = Object.keys(idolData) as IdolName[]
   const [selectedIdols, setSelectedIdols] = useState<IdolName[]>([])
-  // const [selectedUnits, setSelectedUnits] = useState<UnitName[]>([])
+  const [selectedUnits, setSelectedUnits] = useState<UnitName[]>([])
   const [classNameSuffix, setClassNameSuffix] = useState<ClassNameSuffix>('')
-
-  const selectedUnits = Array.from(new Set(selectedIdols.flatMap(idol => idolToUnit[idol])))
-  function setSelectedUnits(units: UnitName[]) {} // dummy
 
   function updateSelectedUnits(idols: IdolName[]) {
     const selectedUnits: UnitName[] = []
 
+    for(const idol of idols) {
+      for(const unit of idolToUnit[idol]) {
+        if(!selectedUnits.includes(unit)) {
+          selectedUnits.push(unit)
+        }
+      }
+    }
+
     var unitSortIndex = selectedUnits.map((u, index) => {
       var match = 0
       var score = 0
+
       unitToIdol[unitNormalize[u]].map((i) => {
         //ユニットメンバー1人につき1点
         score += 1
         //選択済みメンバー1人につき100点
-        if (idols.indexOf(i) !== -1) {
+        if (idols.includes(i)) {
           match++
           score += 100
         }
         return null
       })
+
       //ユニットメンバー全員選択済みなら10000点
       if (unitToIdol[unitNormalize[u]].length === match) {
         score += 10000
       }
+
       return { name: unitNormalize[u], index: index, score: score }
     })
-    unitSortIndex.sort((a, b) => { return (a.score > b.score) ? -1 : 1 })
     console.log(unitSortIndex)
+
+    unitSortIndex = unitSortIndex.sort((a, b) => { return (a.score > b.score) ? -1 : 1 })
+    console.log(unitSortIndex)
+
     return unitSortIndex.map((e) => {
       return selectedUnits[e.index]
     })
