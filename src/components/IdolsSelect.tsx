@@ -41,15 +41,14 @@ function IdolsSelect(props: Props) {
     )
   }
 
-  const buttons = props.idols
-  // .filter((idol) => filterTypes.includes(idolData[idol].type))
-  // .filter((idol) => filterTypes.includes('selecting') && props.selectedIdols.includes(idol))
-  .map((idol, index) => {
-    if(filterTypes.includes(idolData[idol].type)){
-      if(filterTypes.includes("selecting") && props.selectedIdols.includes(idol)){
+  const buttons = props.idols.map((idol, index) => {
+    if(filterTypes.indexOf(idolData[idol].type) === -1){
+      if(filterTypes.indexOf("selecting") === -1 ||
+         props.selectedIdols.indexOf(idol) === -1){
         return null
       }
     }
+
     return(
       <IdolButton
         key={index}
