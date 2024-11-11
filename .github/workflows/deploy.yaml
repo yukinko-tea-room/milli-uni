@@ -3,7 +3,7 @@ name: Deploy GitHub Pages
 
 on:
   push:
-    branches: ["master"]
+    # branches: ["master"]
   workflow_dispatch:
 
 permissions:
@@ -41,3 +41,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          preview: true
