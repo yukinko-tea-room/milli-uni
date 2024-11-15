@@ -66,17 +66,10 @@ function App() {
   }
 
   function toggleIdol(idol: IdolName) {
-    if (!selectedIdols.includes(idol)) {
-      const selected = selectedIdols.concat(idol)
-      const units = updateSelectedUnits(selected)
-      setSelectedIdols(selected)
-      setSelectedUnits(units)
-    } else {
-      const selected = selectedIdols.filter(v => v !== idol);
-      const units = updateSelectedUnits(selected)
-      setSelectedIdols(selected)
-      setSelectedUnits(units)
-    }
+    const selected = selectedIdols.includes(idol) ? selectedIdols.filter(v => v !== idol) : selectedIdols.concat(idol)
+    const units = updateSelectedUnits(selected)
+    setSelectedIdols(selected)
+    setSelectedUnits(units)
   }
 
   function addRandomIdol() {
