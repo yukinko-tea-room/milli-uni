@@ -41,25 +41,18 @@ function IdolsSelect(props: Props) {
     )
   }
 
-  // TODO: filterとかできれいにする
-  const buttons = props.idols.map((idol, index) => {
-    if(filterTypes.indexOf(idolData[idol].type) === -1){
-      if(filterTypes.indexOf("selecting") === -1 ||
-         props.selectedIdols.indexOf(idol) === -1){
-        return null
-      }
-    }
-
-    return(
-      <IdolButton
-        key={index}
-        selectedIdols={props.selectedIdols}
-        idolName={idol}
-        classNameSuffix={props.classNameSuffix}
-        onClickHandler={(idol) => props.onClickHandler(idol)}
-      />
-    );
-  });
+  const buttons = props.idols.filter((idol) => {
+    return filterTypes.includes(idolData[idol].type) || // 選んでいるタイプに含まれているか
+      (filterTypes.includes('selecting') && props.selectedIdols.includes(idol)) // selectingがある際に選んでいるアイドルの場合
+  }).map((idol, index) => (
+    <IdolButton
+      key={index}
+      selectedIdols={props.selectedIdols}
+      idolName={idol}
+      classNameSuffix={props.classNameSuffix}
+      onClickHandler={(idol) => props.onClickHandler(idol)}
+    />
+  ))
 
   return (
     <div className="idolView">
