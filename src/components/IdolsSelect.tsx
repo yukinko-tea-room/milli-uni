@@ -39,9 +39,10 @@ function IdolsSelect(props: Props) {
   return (
     <div className="idolView">
       <form>
-      {
+        {
           (['princess', 'fairy', 'angel', 'selecting'] as FilterType[]).map((type) =>
             <FilterButton
+              key={type}
               type={type}
               isIncluded={filterTypes.includes(type)}
               toggleFilter={toggleFilter}
