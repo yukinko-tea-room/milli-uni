@@ -1,4 +1,4 @@
-import { FilterType } from "./IdolsSelect"
+import { FilterType } from "./IdolSelector"
 
 type Props = {
   type: FilterType

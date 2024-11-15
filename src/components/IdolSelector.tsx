@@ -12,7 +12,7 @@ type Props = {
 
 export type FilterType = IdolType | 'selecting'
 
-function IdolsSelect(props: Props) {
+function IdolSelector(props: Props) {
   const [filterTypes, setFilterTypes] = useState<FilterType[]>(['princess', 'fairy', "angel"])
 
   function toggleFilter(type: FilterType) {
@@ -55,4 +55,4 @@ function IdolsSelect(props: Props) {
   )
 }
 
-export default IdolsSelect
+export default IdolSelector

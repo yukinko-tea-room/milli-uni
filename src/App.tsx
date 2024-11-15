@@ -7,7 +7,7 @@ import './styles/App.color.css';
 
 import { idolData, unitToIdol, idolToUnit, unitNormalize } from './data'
 
-import IdolsSelect from './components/IdolsSelect';
+import IdolSelector from './components/IdolSelector';
 import UnitItem from './components/UnitItem';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -130,7 +130,7 @@ function App() {
             </form>
           </div>
           <button onClick={() => addRandomIdol()} >ランダムに選択</button>
-          <IdolsSelect
+          <IdolSelector
             idols={listIdols}
             selectedIdols={selectedIdols}
             classNameSuffix={classNameSuffix}
