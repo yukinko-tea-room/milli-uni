@@ -15,7 +15,7 @@
 }
 .idolImageIcon {
   border-radius: 5px;
-  background-size: contain;
+  background-size: cover;
   height: 35px;
   width: 35px;
 }

@@ -15,7 +15,7 @@
   border-radius: 5px;
   height: 22px;
   width: 22px;
-  background-size: contain;
+  background-size: cover;
 }
 .idolNameBoxSmall {
   flex: 1;
