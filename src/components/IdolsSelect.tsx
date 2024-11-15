@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { idolData, IdolName, IdolType } from "../data"
 import IdolButton from "./IdolButton"
+import FilterButton from "./FilterButton"
 
 type Props = {
   idols: IdolName[]
@@ -9,7 +10,7 @@ type Props = {
   onClickHandler: (i: IdolName) => void
 }
 
-type FilterType = IdolType | 'selecting'
+export type FilterType = IdolType | 'selecting'
 
 function IdolsSelect(props: Props) {
   const [filterTypes, setFilterTypes] = useState<FilterType[]>(['princess', 'fairy', "angel"])
@@ -20,25 +21,6 @@ function IdolsSelect(props: Props) {
     } else {
       setFilterTypes((types) => types.concat(type))
     }
-  }
-
-  function filterButtonBuilder(type: FilterType) {
-    return (
-      <label>
-        <div
-          className={`filterCheckboxType filterCheckbox-${type} ${filterTypes.includes(type) ? "checked" : ""}`}
-        >
-          <div className="typeNameBox">
-            <input
-              type="checkbox"
-              checked={(filterTypes.includes(type))}
-              onChange={() => toggleFilter(type)}
-            />
-            {type}
-          </div>
-        </div>
-      </label>
-    )
   }
 
   const buttons = props.idols.filter((idol) => {
@@ -57,10 +39,15 @@ function IdolsSelect(props: Props) {
   return (
     <div className="idolView">
       <form>
-        {filterButtonBuilder("princess")}
-        {filterButtonBuilder("fairy")}
-        {filterButtonBuilder("angel")}
-        {filterButtonBuilder("selecting")}
+      {
+          (['princess', 'fairy', 'angel', 'selecting'] as FilterType[]).map((type) =>
+            <FilterButton
+              type={type}
+              isIncluded={filterTypes.includes(type)}
+              toggleFilter={toggleFilter}
+            />
+          )
+        }
       </form>
       {buttons}
     </div>
