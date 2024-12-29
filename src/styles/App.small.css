@@ -1,0 +1,105 @@
+.idolBoxSmall {
+  border-radius: 5px;
+  border: solid;
+  border-width: 2px;
+  min-width: 100px;
+  max-width: 200px;
+  margin: 2px;
+  align-items: center;
+  justify-content: center;
+  cursor : pointer;
+  flex: 1;
+}
+.idolImageSmall {
+  margin: 2px;
+  border-radius: 5px;
+  height: 22px;
+  width: 22px;
+  background-size: cover;
+}
+.idolNameBoxSmall {
+  flex: 1;
+  font-size: 0.4em;
+  padding: 2px;
+  margin: 2px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.unitListSmall {
+  padding: 2px;
+  margin: auto;
+}
+.unitTableSmall {
+  border: solid;
+  margin: 7px;
+  border-radius: 5px;
+  border-width: 2px;
+  display: flex;
+}
+.unitNameViewSmall {
+  border: solid;
+  border-radius: 5px;
+  min-width: 80px; 
+  max-width: 80px; 
+  margin: 2px;
+  padding: 2px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+.unitNameBoxSmall {
+  font-size: 0.4em;
+  display: table;
+  padding: 2px;
+  border-radius: 5px;
+}
+.filterCheckboxTypeSmall {
+  flex: 1;
+  border: solid;
+  width: 60px;
+  padding: 2px;
+  margin: 2px;
+  border-radius: 5px;
+  border-width: 2px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.typeNameBoxSmall {
+  flex: 1;
+  min-height: 10px;
+  width: 50px;
+  margin: auto;
+  font-size: 0.4em;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.changestyleBoxSmall{
+  flex: 1;
+  border: solid;
+  width: 60px;
+  padding: 2px;
+  margin: 2px;
+  border-radius: 5px;
+  border-width: 2px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.changestyleNameBoxSmall {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.75);
+  font-size: 0.4em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
