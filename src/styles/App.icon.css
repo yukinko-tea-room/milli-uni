@@ -1,0 +1,126 @@
+.idolBoxIcon {
+  border-radius: 5px;
+  border: solid;
+  border-width: 2px;
+  padding: 3px;
+  margin: 5px;
+  flex: 0;
+  min-height: 35px;
+  max-height: 35px;
+  min-width: 35px;
+  max-width: 35px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.idolImageIcon {
+  border-radius: 5px;
+  background-size: cover;
+  height: 35px;
+  width: 35px;
+}
+.idolNameBoxIcon {
+  display: none;
+}
+.unitListIcon {
+  padding: 5px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.unitTableIcon {
+  border: solid;
+  padding: 5px;
+  margin: 5px;
+  min-width: 30%;
+  max-width: 50%;
+  border-radius: 5px;
+  flex: 1;
+}
+.unitNameViewIcon {
+  border: solid;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+.unitNameBoxIcon {
+  font-size: 0.7em;
+  display: table;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.filterCheckboxTypeIcon {
+  flex: 1;
+  border: solid;
+  width: 90px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.filterCheckboxTypeIcon.filterCheckbox-princess {
+  border-color: #ff2383;
+}
+.filterCheckboxTypeIcon.filterCheckbox-princess.checked {
+  background-color: #ff2383;
+}
+.filterCheckboxTypeIcon.filterCheckbox-fairy {
+  border-color: #025efd;
+}
+.filterCheckboxTypeIcon.filterCheckbox-fairy.checked {
+  background-color: #025efd;
+}
+.filterCheckboxTypeIcon.filterCheckbox-angel {
+  border-color: #ffbb00;
+}
+.filterCheckboxTypeIcon.filterCheckbox-angel.checked {
+  background-color: #ffbb00;
+}
+.filterCheckboxTypeIcon.filterCheckbox-selecting {
+  border-color: #88ff88;;
+}
+.filterCheckboxTypeIcon.filterCheckbox-selecting.checked {
+  background-color: #88ff88;
+}
+.typeNameBoxIcon {
+  flex: 1;
+  min-height: 20px;
+  font-size: 0.7em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.changestyleBoxIcon {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  display: table;
+  border: solid;
+  border-color: #ccc;
+  width: 90px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.changestyleBoxIcon.checked{
+  background-color: #ccc;
+}
+.changestyleNameBoxIcon {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.75);
+  font-size: 0.7em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
